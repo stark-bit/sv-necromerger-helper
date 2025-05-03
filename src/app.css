@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+
+@font-face {
+  font-family: 'Necromerger';
+  src: url('/fonts/Necromerger.woff2') format('woff2');
+}
+
+
+body {
+  font-family: 'Necromerger', serif;
+
+}
+
+.bred {
+  border: 1px solid red;
+}
+
+.bred2 {
+  border: 1px solid green;
+}
+
+.bred3 {
+  border: 1px solid blue;
+}
+
+.bred4 {
+  border: 1px solid yellow;
+}
