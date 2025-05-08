@@ -2,19 +2,19 @@
 	import FeatScroll from '$lib/components/feat-scroll.svelte';
 	import FeatTaskReward from '$lib/components/feat-task-reward.svelte';
 	import FeatTask from '$lib/components/feat-task.svelte';
-	import reward0 from '$lib/images/Devourer_1_Idle.gif';
-	import reward1 from '$lib/images/Ice_Rune_1.webp';
-	import reward2 from '$lib/images/Ice_Rune_1.webp';
-	import reward3 from '$lib/images/Ice_Rune_2.webp';
-	import reward4 from '$lib/images/Ice_Rune_2.webp';
+	import reward0 from '$lib/images/Unexpected_Parcel_L3.png';
+	import reward1 from '$lib/images/Valuable_Chest.webp';
+	import reward2 from '$lib/images/Shiny_Pearl.png';
+	import reward3 from '$lib/images/Time_Piece_L2.png';
+	import reward4 from '$lib/images/Gold_Pearl.png';
 
-	const title = 'Tier 1 feats';
-	const unlockText = 'Unlocks the Devourer';
+	const title = 'Tier 27 feats';
+	const unlockText = 'Unlocks the Unexpected Parcel 3';
 	const tasks = {
-		1: 'Create 5 Bones',
-		2: 'Summon a Skeleton',
-		3: 'Create a bigger Ice Rune pile',
-		4: 'Tap The NecroMerger 10 times'
+		1: 'Own a lvl 3 Mana Golem.',
+		2: 'Open 250 chests.',
+		3: 'Have reached Devourer level 150.',
+		4: 'Have beaten the Protector in combat 20 times this run.'
 	};
 </script>
 

@@ -2,19 +2,19 @@
 	import FeatScroll from '$lib/components/feat-scroll.svelte';
 	import FeatTaskReward from '$lib/components/feat-task-reward.svelte';
 	import FeatTask from '$lib/components/feat-task.svelte';
-	import reward0 from '$lib/images/Devourer_1_Idle.gif';
-	import reward1 from '$lib/images/Ice_Rune_1.webp';
-	import reward2 from '$lib/images/Ice_Rune_1.webp';
-	import reward3 from '$lib/images/Ice_Rune_2.webp';
-	import reward4 from '$lib/images/Ice_Rune_2.webp';
+	import reward0 from '$lib/images/Soul_Stalker.gif';
+	import reward1 from '$lib/images/Valuable_Chest.webp';
+	import reward2 from '$lib/images/Galactic_Rune_3.webp';
+	import reward3 from '$lib/images/Galactic_Chest.webp';
+	import reward4 from '$lib/images/Energy_Rune_3.webp';
 
-	const title = 'Tier 1 feats';
-	const unlockText = 'Unlocks the Devourer';
+	const title = 'Tier 22 feats';
+	const unlockText = 'Unlocks the Soul Stalker';
 	const tasks = {
-		1: 'Create 5 Bones',
-		2: 'Summon a Skeleton',
-		3: 'Create a bigger Ice Rune pile',
-		4: 'Tap The NecroMerger 10 times'
+		1: 'Own a Shield Bot',
+		2: 'Feed 5 lvl 3 Peaceful Souls to The Devourer',
+		3: 'Have reached Devourer level 75.',
+		4: 'Have researched all Spells to at least lvl 1'
 	};
 </script>
 

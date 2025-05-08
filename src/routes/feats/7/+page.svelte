@@ -2,19 +2,19 @@
 	import FeatScroll from '$lib/components/feat-scroll.svelte';
 	import FeatTaskReward from '$lib/components/feat-task-reward.svelte';
 	import FeatTask from '$lib/components/feat-task.svelte';
-	import reward0 from '$lib/images/Devourer_1_Idle.gif';
-	import reward1 from '$lib/images/Ice_Rune_1.webp';
-	import reward2 from '$lib/images/Ice_Rune_1.webp';
-	import reward3 from '$lib/images/Ice_Rune_2.webp';
-	import reward4 from '$lib/images/Ice_Rune_2.webp';
+	import reward0 from '$lib/images/Altar_L1.png';
+	import reward1 from '$lib/images/Blood_Rune_2.webp';
+	import reward2 from '$lib/images/Blood_Chest.webp';
+	import reward3 from '$lib/images/Poison_Chest.webp';
+	import reward4 from '$lib/images/Slime_Potion_L3.webp';
 
-	const title = 'Tier 1 feats';
-	const unlockText = 'Unlocks the Devourer';
+	const title = 'Tier 7 feats';
+	const unlockText = 'Unlocks the Altar';
 	const tasks = {
-		1: 'Create 5 Bones',
-		2: 'Summon a Skeleton',
-		3: 'Create a bigger Ice Rune pile',
-		4: 'Tap The NecroMerger 10 times'
+		1: 'Build a Slime Vat',
+		2: 'Own a Lvl 4+ Mummy',
+		3: 'Beat The Knight twice.',
+		4: 'Own a Lvl 3+ Supply Cupboard.'
 	};
 </script>
 

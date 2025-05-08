@@ -5,13 +5,20 @@
 		unlock,
 		unlockText,
 		children
-	}: { title: string; unlock: any; unlockText: any; children: any } = $props();
+	}: { title: string; unlock: any; unlockText: string; children: any } = $props();
 </script>
 
-<div style="background-image: url({feat_scroll})" class="feat-grid bg relative m-auto">
-	<div id="title" class="absolute">{title}</div>
-	<div id="unlock" class="absolute size-10">{@render unlock?.()}</div>
-	<div id="unlock-text" class="absolute size-10">{@render unlockText?.()}</div>
+<div
+	style="background-image: url({feat_scroll})"
+	class="text-shadow-necro feat-grid bg relative m-auto text-center"
+>
+	<div id="title" class="text-shadow-necro absolute">{title}</div>
+	<div id="unlock" class="absolute grid place-items-center">
+		<div>{@render unlock?.()}</div>
+	</div>
+	<div id="unlock-text" class="absolute flex size-10 items-center justify-center">
+		<div>{unlockText}</div>
+	</div>
 	<div id="tasks" class="absolute">
 		<div class="task-grid">
 			{@render children()}
@@ -30,12 +37,11 @@
 	}
 
 	#title {
-		top: 5%;
+		top: 4.5%;
 		left: 22%;
 		width: 56%;
 		height: 4%;
-		background: green;
-		opacity: 0.2;
+		font-size: 20px;
 	}
 
 	#tasks {
@@ -43,8 +49,6 @@
 		left: 16%;
 		width: 68%;
 		height: 53%;
-		background: green;
-		opacity: 0.2;
 	}
 
 	#unlock {
@@ -52,8 +56,6 @@
 		left: 17%;
 		width: 66%;
 		height: 14%;
-		background: blue;
-		opacity: 0.2;
 	}
 
 	#unlock-text {
@@ -61,8 +63,6 @@
 		left: 17%;
 		width: 66%;
 		height: 10%;
-		background: red;
-		opacity: 0.3;
 	}
 
 	.bg {

@@ -2,20 +2,20 @@
 	import FeatScroll from '$lib/components/feat-scroll.svelte';
 	import FeatTaskReward from '$lib/components/feat-task-reward.svelte';
 	import FeatTask from '$lib/components/feat-task.svelte';
-	import reward0 from '$lib/images/Devourer_1_Idle.gif';
-	import reward1 from '$lib/images/Ice_Rune_1.webp';
-	import reward2 from '$lib/images/Ice_Rune_1.webp';
-	import reward3 from '$lib/images/Ice_Rune_2.webp';
-	import reward4 from '$lib/images/Ice_Rune_2.webp';
+	import reward0 from '$lib/images/Foul_Chicken_L1.gif';
+  import reward1 from '$lib/images/Cauldron_L1.gif';
+	import reward2 from '$lib/images/Ice_Chest.webp';
+  import reward3 from '$lib/images/Poison_Rune_3.webp';
+	import reward4 from '$lib/images/Chicken_Leg.webp';
 
-	const title = 'Tier 1 feats';
-	const unlockText = 'Unlocks the Devourer';
-	const tasks = {
-		1: 'Create 5 Bones',
-		2: 'Summon a Skeleton',
-		3: 'Create a bigger Ice Rune pile',
-		4: 'Tap The NecroMerger 10 times'
-	};
+  const title = 'Tier 5 feats'
+  const unlockText = 'Unlocks the Foul Chicken'
+  const tasks = {
+  1: "Build a Supply Cupboard",
+  2: "Beat The Peasant twice",
+  3: "Merge things 250 times",
+  4: "Own a Lvl 5+ Eye Monster"
+  }
 </script>
 
 {#snippet unlock()}

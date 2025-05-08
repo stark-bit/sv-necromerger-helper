@@ -2,19 +2,19 @@
 	import FeatScroll from '$lib/components/feat-scroll.svelte';
 	import FeatTaskReward from '$lib/components/feat-task-reward.svelte';
 	import FeatTask from '$lib/components/feat-task.svelte';
-	import reward0 from '$lib/images/Devourer_1_Idle.gif';
-	import reward1 from '$lib/images/Ice_Rune_1.webp';
-	import reward2 from '$lib/images/Ice_Rune_1.webp';
-	import reward3 from '$lib/images/Ice_Rune_2.webp';
-	import reward4 from '$lib/images/Ice_Rune_2.webp';
+	import reward0 from '$lib/images/Crashed_Saucer_All_L1.gif';
+	import reward1 from '$lib/images/Cosmic_Rune_2.webp';
+	import reward2 from '$lib/images/Valuable_Chest.webp';
+	import reward3 from '$lib/images/Death_Chest.webp';
+	import reward4 from '$lib/images/Cosmic_Chest.webp';
 
-	const title = 'Tier 1 feats';
-	const unlockText = 'Unlocks the Devourer';
+	const title = 'Tier 17 feats';
+	const unlockText = 'Unlocks the Crashed Saucer';
 	const tasks = {
-		1: 'Create 5 Bones',
-		2: 'Summon a Skeleton',
-		3: 'Create a bigger Ice Rune pile',
-		4: 'Tap The NecroMerger 10 times'
+		1: 'Summon 5 forgotten minion',
+		2: 'Own the Reaper',
+		3: 'Have researched 18 spells to at least level 1',
+		4: 'Have 5 Demons die in combat'
 	};
 </script>
 
