@@ -7,9 +7,12 @@
 
 	function prevFeat() {
 		goto(String(pageNum > 1 ? pageNum - 1 : pageNum));
+		displayImg1 = right0;
 	}
+
 	function nextFeat() {
 		goto(String(pageNum < 30 ? pageNum + 1 : pageNum));
+		displayImg2 = right0;
 	}
 
 	let displayImg1 = $state(right0);
@@ -17,21 +20,18 @@
 </script>
 
 {#if dir === 'left'}
-<button class="scale-x-[-1]" onclick={prevFeat}
-	><img
-		onmouseleave={() => (displayImg1 = right0)}
-		onmouseenter={() => (displayImg1 = right1)}
-		alt="arrow"
-		src={displayImg1}
-	/>
-</button>
+	<button
+		class="scale-x-[-1]"
+		ontouchstart={() => (displayImg1 = right1)}
+		onmousedown={() => (displayImg1 = right1)}
+		onmouseup={prevFeat}
+		><img alt="arrow" class="pointer-events-none" src={displayImg1} />
+	</button>
 {:else}
-		<button onclick={nextFeat}
-			><img
-				onmouseleave={() => (displayImg2 = right0)}
-				onmouseenter={() => (displayImg2 = right1)}
-				alt="arrow"
-				src={displayImg2}
-			/>
-		</button>
+	<button
+		ontouchstart={() => (displayImg2 = right1)}
+		onmousedown={() => (displayImg2 = right1)}
+		onmouseup={nextFeat}
+		><img alt="arrow" src={displayImg2} />
+	</button>
 {/if}
