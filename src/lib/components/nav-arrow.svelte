@@ -1,37 +1,38 @@
 <script lang="ts">
-	import right1 from '$lib/images/Arrow_Right_1.png';
-	import right0 from '$lib/images/Arrow_Right_0.png';
-	import { goto } from '$app/navigation';
+	import arrowDown from '$lib/images/Arrow_Right_1.png';
+	import arrowUp from '$lib/images/Arrow_Right_0.png';
 
-	let { pageNum, dir = 'right' } = $props<{ pageNum: number; dir?: 'left' | 'right' }>();
+	let {
+		dir = 'right',
+		navNext,
+		navPrev
+	}: {
+		navNext?: () => void;
+		navPrev?: () => void;
+		dir?: 'left' | 'right';
+	} = $props();
 
-	function prevFeat() {
-		goto(String(pageNum > 1 ? pageNum - 1 : pageNum));
-		displayImg1 = right0;
-	}
-
-	function nextFeat() {
-		goto(String(pageNum < 30 ? pageNum + 1 : pageNum));
-		displayImg2 = right0;
-	}
-
-	let displayImg1 = $state(right0);
-	let displayImg2 = $state(right0);
+	let leftArrow = $state(arrowUp);
+	let rightArrow = $state(arrowUp);
 </script>
 
 {#if dir === 'left'}
 	<button
 		class="scale-x-[-1]"
-		ontouchstart={() => (displayImg1 = right1)}
-		onmousedown={() => (displayImg1 = right1)}
-		onmouseup={prevFeat}
-		><img alt="arrow" class="pointer-events-none" src={displayImg1} />
+		onclick={navPrev}
+		ontouchstart={() => (leftArrow = arrowDown)}
+		ontouchend={() => (leftArrow = arrowUp)}
+		onmousedown={() => (leftArrow = arrowDown)}
+		onmouseup={() => (leftArrow = arrowUp)}
+		><img alt="arrow" class="pointer-events-none" src={leftArrow} />
 	</button>
 {:else}
 	<button
-		ontouchstart={() => (displayImg2 = right1)}
-		onmousedown={() => (displayImg2 = right1)}
-		onmouseup={nextFeat}
-		><img alt="arrow" src={displayImg2} />
+		onclick={navNext}
+		ontouchstart={() => (rightArrow = arrowDown)}
+		ontouchend={() => (rightArrow = arrowUp)}
+		onmousedown={() => (rightArrow = arrowDown)}
+		onmouseup={() => (rightArrow = arrowUp)}
+		><img alt="arrow" src={rightArrow} />
 	</button>
 {/if}
