@@ -1,15 +1,18 @@
 <script lang="ts">
 	import arrowDown from '$lib/images/Arrow_Right_1.png';
 	import arrowUp from '$lib/images/Arrow_Right_0.png';
+	import { twMerge } from 'tailwind-merge';
 
 	let {
 		dir = 'right',
-		navNext,
-		navPrev
+    class: className,
+		next,
+		prev
 	}: {
-		navNext?: () => void;
-		navPrev?: () => void;
+		next?: () => void;
+		prev?: () => void;
 		dir?: 'left' | 'right';
+    class?: string;
 	} = $props();
 
 	let leftArrow = $state(arrowUp);
@@ -18,8 +21,8 @@
 
 {#if dir === 'left'}
 	<button
-		class="scale-x-[-1]"
-		onclick={navPrev}
+		class={twMerge("scale-x-[-1]", className)}
+		onclick={prev}
 		ontouchstart={() => (leftArrow = arrowDown)}
 		ontouchend={() => (leftArrow = arrowUp)}
 		onmousedown={() => (leftArrow = arrowDown)}
@@ -28,7 +31,8 @@
 	</button>
 {:else}
 	<button
-		onclick={navNext}
+		class={twMerge(className)}
+		onclick={next}
 		ontouchstart={() => (rightArrow = arrowDown)}
 		ontouchend={() => (rightArrow = arrowUp)}
 		onmousedown={() => (rightArrow = arrowDown)}

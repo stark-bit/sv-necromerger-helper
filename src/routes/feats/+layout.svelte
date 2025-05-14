@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import NavArrow from '$lib/components/nav-arrow.svelte';
@@ -20,27 +21,33 @@
 		pageNum = Number(getLastSegment(page.url));
 	});
 
-	function navPrev() {
+	function prev() {
 		goto(String(pageNum > 1 ? pageNum - 1 : pageNum));
 	}
 
-	function navNext() {
+	function next() {
 		goto(String(pageNum < 30 ? pageNum + 1 : pageNum));
 	}
 	function handleKey(e: KeyboardEvent) {
 		if (e.key === 'ArrowRight') {
-			navNext();
+			next();
 		}
 		if (e.key === 'ArrowLeft') {
-			navPrev();
+			prev();
 		}
 	}
 
 	onMount(() => {
+		if (!browser) {
+			return;
+		}
 		window.addEventListener('keydown', handleKey);
 	});
 
 	onDestroy(() => {
+		if (!browser) {
+			return;
+		}
 		window.removeEventListener('keydown', handleKey);
 	});
 </script>
@@ -48,7 +55,7 @@
 <div class="">
 	{@render children()}
 	<div class="flex justify-center gap-10">
-		<NavArrow {navPrev} dir="left" />
-		<NavArrow {navNext} dir="right" />
+		<NavArrow {prev} dir="left" />
+		<NavArrow {next} dir="right" />
 	</div>
 </div>
