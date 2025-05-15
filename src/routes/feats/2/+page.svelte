@@ -1,7 +1,5 @@
 <script lang="ts">
-	import FeatScroll from '$lib/components/feat-scroll.svelte';
-	import FeatTaskReward from '$lib/components/feat-task-reward.svelte';
-	import FeatTask from '$lib/components/feat-task.svelte';
+	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
 	import reward0 from '$lib/images/Grave_L1.png';
 	import reward1 from '$lib/images/Mana_Potion_L1.webp';
 	import reward2 from '$lib/images/Mana_Potion_L1.webp';

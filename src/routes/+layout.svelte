@@ -1,8 +1,9 @@
 <script lang="ts">
-	import BonePanel from '$lib/components/bone-panel.svelte';
-	import BottomNavLink from '$lib/components/bottom-nav-link.svelte';
+	import { BottomNavLink } from '$lib';
+
 
 	import '../app.css';
+	import BonePanel from '$lib/components/Panel/bone-panel.svelte';
 
 	let { children } = $props();
 </script>

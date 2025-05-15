@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import NavArrow from '$lib/components/nav-arrow.svelte';
+	import { NavArrow } from '$lib';
 	import { onDestroy, onMount } from 'svelte';
 	let { children } = $props();
 

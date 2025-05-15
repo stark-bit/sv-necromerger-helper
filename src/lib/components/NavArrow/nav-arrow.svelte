@@ -1,7 +1,7 @@
 <script lang="ts">
+import { twMerge } from 'tailwind-merge';
 	import arrowDown from '$lib/images/Arrow_Right_1.png';
 	import arrowUp from '$lib/images/Arrow_Right_0.png';
-	import { twMerge } from 'tailwind-merge';
 
 	let {
 		dir = 'right',

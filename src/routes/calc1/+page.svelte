@@ -5,133 +5,50 @@
 	import moon from '$lib/images/Moon_Rune_0.png';
 	import death from '$lib/images/Death_Rune_0.png';
 	import cosmic from '$lib/images/Cosmic_Rune_0.png';
+	import { Legendary, runeCount, type Rune, legendaryCount } from '$lib';
 
-	import Legendary from '$lib/components/legendary.svelte';
+	const runeNames: Rune[] = ['ice', 'poison', 'blood', 'moon', 'death', 'cosmic'];
+	const runeMap = { ice, poison, blood, moon, death, cosmic };
 
-	const defaultRunes = { ice: 0, poison: 0, blood: 0, moon: 0, death: 0, cosmic: 0 };
-	let runeCount = $state(defaultRunes);
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
-	let legendaries = $state({
-		lich: defaultRunes,
-		gorgon: defaultRunes,
-		harpy: defaultRunes,
-		reaper: defaultRunes,
-		cyclops: defaultRunes
+	$effect(() => {
+		const runes = Object.values(runeCount).map(String).join('-');
+		const legendaries = Object.values(legendaryCount).map(String).join('-');
+		const query = new URLSearchParams({ runes, legendaries }).toString();
+		goto(`?${query}`);
 	});
 
-	function handleChange(legend: string, count: number, action: 'inc' | 'dec') {
-		switch (legend?.toLowerCase()) {
-			case 'lich':
-				if (action === 'inc') {
-					runeCount.ice += 640;
-				} else {
-					runeCount.ice -= 640;
-				}
-				break;
-			case 'gorgon':
-				if (action === 'inc') {
-					runeCount.poison += 640;
-				} else {
-					runeCount.poison -= 640;
-				}
-				break;
-			case 'harpy':
-				if (action === 'inc') {
-					runeCount.blood += 640;
-				} else {
-					runeCount.blood -= 640;
-				}
-				break;
-			case 'reaper':
-				if (action === 'inc') {
-					runeCount.ice += 1600;
-					runeCount.moon += 640;
-				} else {
-					runeCount.ice -= 1600;
-					runeCount.moon -= 640;
-				}
-				break;
-			case 'cyclops':
-				if (action === 'inc') {
-					runeCount.poison += 1600;
-					runeCount.moon += 640;
-				} else {
-					runeCount.poison -= 1600;
-					runeCount.moon -= 640;
-				}
-				break;
-			case 'archdemon':
-				if (action === 'inc') {
-					runeCount.blood += 960;
-					runeCount.death += 960;
-				} else {
-					runeCount.blood -= 960;
-					runeCount.death -= 960;
-				}
-				break;
-			case 'cursed':
-				if (action === 'inc') {
-					runeCount.ice += 2240;
-					runeCount.moon += 640;
-				} else {
-					runeCount.ice -= 2240;
-					runeCount.moon -= 640;
-				}
-				break;
-			case 'colossus':
-				if (action === 'inc') {
-					runeCount.poison += 2240;
-					runeCount.moon += 640;
-				} else {
-					runeCount.poison -= 2240;
-					runeCount.moon -= 640;
-				}
-				break;
-			case 'infernal':
-				if (action === 'inc') {
-					runeCount.blood += 1600;
-					runeCount.death += 960;
-				} else {
-					runeCount.blood -= 1600;
-					runeCount.death -= 960;
-				}
-				break;
-			case 'robot chicken':
-				if (action === 'inc') {
-					runeCount.ice += 960;
-					runeCount.poison += 480;
-				} else {
-					runeCount.ice -= 960;
-					runeCount.poison -= 480;
-				}
-				break;
-			case 'shield bot':
-				if (action === 'inc') {
-					runeCount.cosmic += 640;
-				} else {
-					runeCount.cosmic -= 640;
-				}
-				break;
-			case 'stalker':
-				if (action === 'inc') {
-					runeCount.cosmic += 800;
-					runeCount.death += 800;
-				} else {
-					runeCount.cosmic -= 800;
-					runeCount.death -= 800;
-				}
-				break;
+	onMount(() => {
+		const params = new URLSearchParams(location.search);
+		const runesParam = params.get('runes');
+		const legendariesParams = params.get('legendaries');
 
-			default:
-				throw new Error(`unknown legendary: ${legend}`);
+		if (legendariesParams) {
+			const values = legendariesParams.split('-').map(Number);
+			const keys = Object.keys(legendaryCount);
+
+			for (let i = 0; i < keys.length; i++) {
+				if (!isNaN(values[i])) {
+					legendaryCount[keys[i]] = values[i];
+				}
+			}
 		}
-	}
+		if (runesParam) {
+			const values = runesParam.split('-').map(Number);
+			const keys = Object.keys(runeCount);
 
-	const runeNames = ['ice', 'poison', 'blood', 'moon', 'death', 'cosmic'];
-	const runeMap = { ice, poison, blood, moon, death, cosmic };
+			for (let i = 0; i < keys.length; i++) {
+				if (!isNaN(values[i])) {
+					runeCount[keys[i]] = values[i];
+				}
+			}
+		}
+	});
 </script>
 
-{#snippet runes(rune: string, label: string)}
+{#snippet runes(rune: string, label: Rune)}
 	<div class="">
 		<img src={rune} class="m-auto block" alt="rune" />
 		<div class="text-center">{runeCount[label]}</div>
@@ -145,17 +62,17 @@
 </div>
 
 <div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
-	<Legendary onChange={handleChange} legend="lich" />
-	<Legendary onChange={handleChange} legend="gorgon" />
-	<Legendary onChange={handleChange} legend="harpy" />
-	<Legendary onChange={handleChange} legend="reaper" />
-	<Legendary onChange={handleChange} legend="cyclops" />
-	<Legendary onChange={handleChange} legend="archdemon" />
-	<Legendary onChange={handleChange} legend="cursed" />
-	<Legendary onChange={handleChange} legend="colossus" />
-	<Legendary onChange={handleChange} legend="infernal" />
-	<Legendary onChange={handleChange} legend="robot chicken" />
-	<Legendary onChange={handleChange} legend="shield bot" />
-	<Legendary onChange={handleChange} legend="stalker" />
+	<Legendary legend="lich" />
+	<Legendary legend="gorgon" />
+	<Legendary legend="harpy" />
+	<Legendary legend="reaper" />
+	<Legendary legend="cyclops" />
+	<Legendary legend="archdemon" />
+	<Legendary legend="cursed" />
+	<Legendary legend="colossus" />
+	<Legendary legend="infernal" />
+	<Legendary legend="robot chicken" />
+	<Legendary legend="shield bot" />
+	<Legendary legend="stalker" />
 </div>
 <div class="flex-col"></div>
