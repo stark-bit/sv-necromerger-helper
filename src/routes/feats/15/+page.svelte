@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { portal1, valuableChest, moonChest, ham, deathRune3 } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Portal_L1.gif';
-	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
-	import reward2 from '$lib/assets/images/Moon_Chest.webp';
-	import reward3 from '$lib/assets/images/Ham.webp';
-	import reward4 from '$lib/assets/images/Death_Rune_3.webp';
+
+	const reward0 = portal1;
+	const reward1 = valuableChest;
+	const reward2 = moonChest;
+	const reward3 = ham;
+	const reward4 = deathRune3;
 
 	const title = 'Tier 15 feats';
 	const unlockText = 'Unlocks the Portal';

@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { unexpectedParcel4, energyChest, shinyPearl, gem3, galacticRune3 } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Unexpected_Parcel_L4.png';
-	import reward1 from '$lib/assets/images/Energy_Chest.png';
-	import reward2 from '$lib/assets/images/Shiny_Pearl.png';
-	import reward3 from '$lib/assets/images/Gem_3.gif';
-	import reward4 from '$lib/assets/images/Galactic_Rune_3.webp';
+
+	const reward0 = unexpectedParcel4;
+	const reward1 = energyChest;
+	const reward2 = shinyPearl;
+	const reward3 = gem3;
+	const reward4 = galacticRune3;
 
 	const title = 'Tier 28 feats';
 	const unlockText = 'Unlocks the Unexpected Parcel 4';

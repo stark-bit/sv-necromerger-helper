@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { fridge1, valuableChest, coin4, bloodChest, moonChest } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Fridge_L1.png';
-	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
-	import reward2 from '$lib/assets/images/Coin_4.webp';
-	import reward3 from '$lib/assets/images/Blood_Chest.webp';
-	import reward4 from '$lib/assets/images/Moon_Chest.webp';
+
+	const reward0 = fridge1;
+	const reward1 = valuableChest;
+	const reward2 = coin4;
+	const reward3 = bloodChest;
+	const reward4 = moonChest;
 
 	const title = 'Tier 13 feats';
 	const unlockText = 'Unlocks the Fridge';

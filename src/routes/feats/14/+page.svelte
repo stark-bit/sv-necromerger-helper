@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { reaperBig, deathRune2, coin4, moonChest, moonRune3 } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Reaper.gif';
-	import reward1 from '$lib/assets/images/Death_Rune_2.webp';
-	import reward2 from '$lib/assets/images/Coin_4.webp';
-	import reward3 from '$lib/assets/images/Moon_Chest.webp';
-	import reward4 from '$lib/assets/images/Moon_Rune_3.webp';
+
+	const reward0 = reaperBig;
+	const reward1 = deathRune2;
+	const reward2 = coin4;
+	const reward3 = moonChest;
+	const reward4 = moonRune3;
 
 	const title = 'Tier 14 feats';
 	const unlockText = 'Unlocks the Reaper';

@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { gorgonBig, poisonChest, moonRune2, bloodChest, bloodRune3 } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Gorgon_002.gif';
-	import reward1 from '$lib/assets/images/Poison_Chest.webp';
-	import reward2 from '$lib/assets/images/Moon_Rune_2.webp';
-	import reward3 from '$lib/assets/images/Blood_Rune_3.webp';
-	import reward4 from '$lib/assets/images/Blood_Chest.webp';
+
+	const reward0 = gorgonBig;
+	const reward1 = poisonChest;
+	const reward2 = moonRune2;
+	const reward3 = bloodRune3;
+	const reward4 = bloodChest;
 
 	const title = 'Tier 10 feats';
 	const unlockText = 'Unlocks the Gorgon';

@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { altar1, bloodRune2, bloodChest, poisonChest, slimePotion3 } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Altar_L1.png';
-	import reward1 from '$lib/assets/images/Blood_Rune_2.webp';
-	import reward2 from '$lib/assets/images/Blood_Chest.webp';
-	import reward3 from '$lib/assets/images/Poison_Chest.webp';
-	import reward4 from '$lib/assets/images/Slime_Potion_L3.webp';
+
+	const reward0 = altar1;
+	const reward1 = bloodRune2;
+	const reward2 = bloodChest;
+	const reward3 = poisonChest;
+	const reward4 = slimePotion3;
 
 	const title = 'Tier 7 feats';
 	const unlockText = 'Unlocks the Altar';

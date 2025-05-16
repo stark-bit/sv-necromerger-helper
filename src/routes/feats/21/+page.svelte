@@ -1,10 +1,18 @@
 <script lang="ts">
+	import {
+		soulGrinder1,
+		valuableChest,
+		galacticChest,
+		energyRune2,
+		cosmicChest
+	} from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Soul_Grinder_L1.gif';
-	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
-	import reward2 from '$lib/assets/images/Galactic_Chest.webp';
-	import reward3 from '$lib/assets/images/Energy_Rune_2.webp';
-	import reward4 from '$lib/assets/images/Cosmic_Chest.webp';
+
+	const reward0 = soulGrinder1;
+	const reward1 = valuableChest;
+	const reward2 = galacticChest;
+	const reward3 = energyRune2;
+	const reward4 = cosmicChest;
 
 	const title = 'Tier 21 feats';
 	const unlockText = 'Unlocks the Soul Grinder';

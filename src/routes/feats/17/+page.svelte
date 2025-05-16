@@ -1,10 +1,18 @@
 <script lang="ts">
+	import {
+		crashedSaucerAll1,
+		cosmicRune2,
+		valuableChest,
+		deathChest,
+		cosmicChest
+	} from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Crashed_Saucer_All_L1.gif';
-	import reward1 from '$lib/assets/images/Cosmic_Rune_2.webp';
-	import reward2 from '$lib/assets/images/Valuable_Chest.webp';
-	import reward3 from '$lib/assets/images/Death_Chest.webp';
-	import reward4 from '$lib/assets/images/Cosmic_Chest.webp';
+
+	const reward0 = crashedSaucerAll1;
+	const reward1 = cosmicRune2;
+	const reward2 = valuableChest;
+	const reward3 = deathChest;
+	const reward4 = cosmicChest;
 
 	const title = 'Tier 17 feats';
 	const unlockText = 'Unlocks the Crashed Saucer';

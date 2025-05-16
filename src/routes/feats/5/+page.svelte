@@ -1,19 +1,21 @@
 <script lang="ts">
+	import { foulChicken1, cauldron1, iceChest, poisonRune3, chickenLeg } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Foul_Chicken_L1.gif';
-  import reward1 from '$lib/assets/images/Cauldron_L1.gif';
-	import reward2 from '$lib/assets/images/Ice_Chest.webp';
-  import reward3 from '$lib/assets/images/Poison_Rune_3.webp';
-	import reward4 from '$lib/assets/images/Chicken_Leg.webp';
 
-  const title = 'Tier 5 feats'
-  const unlockText = 'Unlocks the Foul Chicken'
-  const tasks = {
-  1: "Build a Supply Cupboard",
-  2: "Beat The Peasant twice",
-  3: "Merge things 250 times",
-  4: "Own a Lvl 5+ Eye Monster"
-  }
+	const reward0 = foulChicken1;
+	const reward1 = cauldron1;
+	const reward2 = iceChest;
+	const reward3 = poisonRune3;
+	const reward4 = chickenLeg;
+
+	const title = 'Tier 5 feats';
+	const unlockText = 'Unlocks the Foul Chicken';
+	const tasks = {
+		1: 'Build a Supply Cupboard',
+		2: 'Beat The Peasant twice',
+		3: 'Merge things 250 times',
+		4: 'Own a Lvl 5+ Eye Monster'
+	};
 </script>
 
 {#snippet unlock()}

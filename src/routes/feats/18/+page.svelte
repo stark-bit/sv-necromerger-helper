@@ -1,10 +1,18 @@
 <script lang="ts">
+	import {
+		archdemonBig,
+		valuableChest,
+		cosmicChest,
+		galacticRune3,
+		cosmicRune3
+	} from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Archdemon_002.gif';
-	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
-	import reward2 from '$lib/assets/images/Cosmic_Chest.webp';
-	import reward3 from '$lib/assets/images/Galactic_Rune_3.webp';
-	import reward4 from '$lib/assets/images/Cosmic_Rune_3.webp';
+
+	const reward0 = archdemonBig;
+	const reward1 = valuableChest;
+	const reward2 = cosmicChest;
+	const reward3 = galacticRune3;
+	const reward4 = cosmicRune3;
 
 	const title = 'Tier 18 feats';
 	const unlockText = 'Unlocks the Archdemon';

@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Mana_Pool_L1.png';
-	import reward1 from '$lib/assets/images/Ice_Rune_3.webp';
-	import reward2 from '$lib/assets/images/Mana_Potion_L2.webp';
-	import reward3 from '$lib/assets/images/Poison_Rune_2.webp';
-	import reward4 from '$lib/assets/images/Ice_Rune_3.webp';
+	import { manaPool1, iceRune3, manaPotion2, poisonRune2 } from '$lib/assets';
+
+	const reward0 = manaPool1;
+	const reward1 = iceRune3;
+	const reward2 = manaPotion2;
+	const reward3 = poisonRune2;
+	const reward4 = iceRune3;
 
 	const title = 'Tier 3 feats';
 	const unlockText = 'Unlocks the Mana Pool';

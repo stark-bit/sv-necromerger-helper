@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { darkStores1, gem3, bloodRune3, bloodChest, steak } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Dark_Stores_L1.png';
-	import reward1 from '$lib/assets/images/Gem_3.gif';
-	import reward2 from '$lib/assets/images/Blood_Rune_3.webp';
-	import reward3 from '$lib/assets/images/Blood_Chest.webp';
-	import reward4 from '$lib/assets/images/Steak.webp';
+
+	const reward0 = darkStores1;
+	const reward1 = gem3;
+	const reward2 = bloodRune3;
+	const reward3 = bloodChest;
+	const reward4 = steak;
 
 	const title = 'Tier 9 feats';
 	const unlockText = 'Unlocks the Dark Stores';

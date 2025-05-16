@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { telepad, valuableChest, energyRune1, galacticRune3, cosmicRune3 } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Telepad.png';
-	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
-	import reward2 from '$lib/assets/images/Energy_Rune_1.webp';
-	import reward3 from '$lib/assets/images/Galactic_Rune_3.webp';
-	import reward4 from '$lib/assets/images/Cosmic_Rune_3.webp';
+
+	const reward0 = telepad;
+	const reward1 = valuableChest;
+	const reward2 = energyRune1;
+	const reward3 = galacticRune3;
+	const reward4 = cosmicRune3;
 
 	const title = 'Tier 19 feats';
 	const unlockText = 'Unlocks the Telepad';

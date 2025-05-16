@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { thronesMana, valuableChest, pearlGold, energyChest } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Thrones_Mana.png';
-	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
-	import reward2 from '$lib/assets/images/Gold_Pearl.png'
-	import reward3 from '$lib/assets/images/Energy_Chest.png';
-	import reward4 from '$lib/assets/images/Gold_Pearl.png';
+
+	const reward0 = thronesMana;
+	const reward1 = valuableChest;
+	const reward2 = pearlGold;
+	const reward3 = energyChest;
+	const reward4 = pearlGold;
 
 	const title = 'Tier 30 feats';
 	const unlockText = 'Unlocks the Throne';

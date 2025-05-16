@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { unexpectedParcel1, timePiece1, galacticRune3, gem3, energyChest } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Unexpected_Parcel_L1.png';
-	import reward1 from '$lib/assets/images/Time_Piece_L1.png';
-	import reward2 from '$lib/assets/images/Galactic_Rune_3.webp';
-	import reward3 from '$lib/assets/images/Gem_3.gif';
-	import reward4 from '$lib/assets/images/Energy_Chest.png';
+
+	const reward0 = unexpectedParcel1;
+	const reward1 = timePiece1;
+	const reward2 = galacticRune3;
+	const reward3 = gem3;
+	const reward4 = energyChest;
 
 	const title = 'Tier 25 feats';
 	const unlockText = 'Unlocks the Unexpected Parcel 1';

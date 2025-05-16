@@ -1,19 +1,21 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Cupboard_L1.png';
-  import reward1 from '$lib/assets/images/Ice_Rune_3.webp';
-	import reward2 from '$lib/assets/images/Poison_Rune_3.webp';
-  import reward3 from '$lib/assets/images/Mana_Potion_L3.webp';
-	import reward4 from '$lib/assets/images/Poison_Chest.webp';
+	import { cupboard1, iceRune3, poisonRune3, manaPotion3, poisonChest } from '$lib/assets';
 
-  const title = 'Tier 4 feats'
-  const unlockText = 'Unlocks the Cupboard'
-  const tasks = {
-  1: "Build a Mana Pool",
-  2: "Open a Chest",
-  3: "Own a Lvl 3+ Grave",
-  4: "Own a level 3+ Zombie"
-  }
+	const reward0 = cupboard1;
+	const reward1 = iceRune3;
+	const reward2 = poisonRune3;
+	const reward3 = manaPotion3;
+	const reward4 = poisonChest;
+
+	const title = 'Tier 4 feats';
+	const unlockText = 'Unlocks the Cupboard';
+	const tasks = {
+		1: 'Build a Mana Pool',
+		2: 'Open a Chest',
+		3: 'Own a Lvl 3+ Grave',
+		4: 'Own a level 3+ Zombie'
+	};
 </script>
 
 {#snippet unlock()}

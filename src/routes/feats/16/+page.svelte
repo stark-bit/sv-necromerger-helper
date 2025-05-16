@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { cyclopsBig, deathChest, deathRune3, ham, moonChest } from '$lib/assets';
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/assets/images/Cyclops_002.gif';
-	import reward1 from '$lib/assets/images/Death_Chest.webp';
-	import reward2 from '$lib/assets/images/Death_Rune_3.webp';
-	import reward3 from '$lib/assets/images/Ham.webp';
-	import reward4 from '$lib/assets/images/Moon_Chest.webp';
+
+	const reward0 = cyclopsBig;
+	const reward1 = deathChest;
+	const reward2 = deathRune3;
+	const reward3 = ham;
+	const reward4 = moonChest;
 
 	const title = 'Tier 16 feats';
 	const unlockText = 'Unlocks the Cyclops';
