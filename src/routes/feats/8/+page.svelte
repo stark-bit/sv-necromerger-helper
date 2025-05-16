@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/images/Lich.gif';
-	import reward1 from '$lib/images/Cauldron_L1.gif';
-	import reward2 from '$lib/images/Blood_Rune_2.webp';
-	import reward3 from '$lib/images/Chicken_Leg.webp';
-	import reward4 from '$lib/images/Poison_Rune_3.webp';
+	import reward0 from '$lib/assets/images/Lich.gif';
+	import reward1 from '$lib/assets/images/Cauldron_L1.gif';
+	import reward2 from '$lib/assets/images/Blood_Rune_2.webp';
+	import reward3 from '$lib/assets/images/Chicken_Leg.webp';
+	import reward4 from '$lib/assets/images/Poison_Rune_3.webp';
 
 	const title = 'Tier 8 feats';
 	const unlockText = 'Unlocks the Lich';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import panel from '$lib/images/PanelBacking.webp';
+	import panel from '$lib/assets/images/PanelBacking.webp';
 	import { twMerge } from 'tailwind-merge';
 
 	let { href, class: className, text }: { text?: string; class?: string; href?: string } = $props();

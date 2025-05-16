@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/images/Slime_Vat_L1.png';
-	import reward1 from '$lib/images/Poison_Chest.webp';
-	import reward2 from '$lib/images/Mana_Potion_L3.webp';
-	import reward3 from '$lib/images/Gem_2.gif';
-	import reward4 from '$lib/images/Poison_Rune_3.webp';
+	import reward0 from '$lib/assets/images/Slime_Vat_L1.png';
+	import reward1 from '$lib/assets/images/Poison_Chest.webp';
+	import reward2 from '$lib/assets/images/Mana_Potion_L3.webp';
+	import reward3 from '$lib/assets/images/Gem_2.gif';
+	import reward4 from '$lib/assets/images/Poison_Rune_3.webp';
 
 	const title = 'Tier 6 feats';
 	const unlockText = 'Unlocks the Slime Vat';

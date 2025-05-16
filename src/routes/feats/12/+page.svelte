@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/images/Harpy_002.gif';
-	import reward1 from '$lib/images/Moon_Rune_3.webp';
-	import reward2 from '$lib/images/Blood_Rune_3.webp';
-	import reward3 from '$lib/images/Ham.webp';
-	import reward4 from '$lib/images/Moon_Chest.webp';
+	import reward0 from '$lib/assets/images/Harpy_002.gif';
+	import reward1 from '$lib/assets/images/Moon_Rune_3.webp';
+	import reward2 from '$lib/assets/images/Blood_Rune_3.webp';
+	import reward3 from '$lib/assets/images/Ham.webp';
+	import reward4 from '$lib/assets/images/Moon_Chest.webp';
 
 	const title = 'Tier 12 feats';
 	const unlockText = 'Unlocks the Harpy';

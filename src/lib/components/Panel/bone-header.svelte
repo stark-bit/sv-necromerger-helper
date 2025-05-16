@@ -1,5 +1,5 @@
 <script lang="ts">
-	import header from '$lib/images/Small_Header_Default.png';
+	import header from '$lib/assets/images/Small_Header_Default.png';
 	import { twMerge } from 'tailwind-merge';
 	let { children, klass } = $props<{ children: any; klass: string }>();
 </script>

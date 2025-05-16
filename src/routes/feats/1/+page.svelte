@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-import reward0 from '$lib/images/Devourer_1_Idle.gif';
-	import reward1 from '$lib/images/Ice_Rune_1.webp';
-	import reward2 from '$lib/images/Ice_Rune_1.webp';
-	import reward3 from '$lib/images/Ice_Rune_2.webp';
-	import reward4 from '$lib/images/Ice_Rune_2.webp';
+import reward0 from '$lib/assets/images/Devourer_1_Idle.gif';
+	import reward1 from '$lib/assets/images/Ice_Rune_1.webp';
+	import reward2 from '$lib/assets/images/Ice_Rune_1.webp';
+	import reward3 from '$lib/assets/images/Ice_Rune_2.webp';
+	import reward4 from '$lib/assets/images/Ice_Rune_2.webp';
 
 	const title = 'Tier 1 feats';
 	const unlockText = 'Unlocks the Devourer';

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/images/Grave_L1.png';
-	import reward1 from '$lib/images/Mana_Potion_L1.webp';
-	import reward2 from '$lib/images/Mana_Potion_L1.webp';
-	import reward3 from '$lib/images/Ice_Rune_2.webp';
-	import reward4 from '$lib/images/Ice_Rune_3.webp';
+	import reward0 from '$lib/assets/images/Grave_L1.png';
+	import reward1 from '$lib/assets/images/Mana_Potion_L1.webp';
+	import reward2 from '$lib/assets/images/Mana_Potion_L1.webp';
+	import reward3 from '$lib/assets/images/Ice_Rune_2.webp';
+	import reward4 from '$lib/assets/images/Ice_Rune_3.webp';
 
 	const title = 'Tier 2 feats';
 	const unlockText = 'Unlocks the Grave';

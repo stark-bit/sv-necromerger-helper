@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/images/Fridge_L1.png';
-	import reward1 from '$lib/images/Valuable_Chest.webp';
-	import reward2 from '$lib/images/Coin_4.webp';
-	import reward3 from '$lib/images/Blood_Chest.webp';
-	import reward4 from '$lib/images/Moon_Chest.webp';
+	import reward0 from '$lib/assets/images/Fridge_L1.png';
+	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
+	import reward2 from '$lib/assets/images/Coin_4.webp';
+	import reward3 from '$lib/assets/images/Blood_Chest.webp';
+	import reward4 from '$lib/assets/images/Moon_Chest.webp';
 
 	const title = 'Tier 13 feats';
 	const unlockText = 'Unlocks the Fridge';

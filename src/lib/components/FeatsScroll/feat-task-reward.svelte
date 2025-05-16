@@ -1,5 +1,5 @@
 <script lang="ts">
-	import checkmark from '$lib/images/checkmark.png';
+	import checkmark from '$lib/assets/images/checkmark.png';
 
 	let { children } = $props<{ children?: any }>();
 

@@ -1,12 +1,19 @@
 <script lang="ts">
-	import borderImage from '$lib/images/PanelBacking_Dark.png';
+	import { borderImage } from '$lib/assets';
 	import type { Snippet } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	let { children, class: className, header } = $props<{ children?: any; class?: string, header?: Snippet }>();
+	let {
+		children,
+		class: className,
+		header
+	} = $props<{ children?: any; class?: string; header?: Snippet }>();
 </script>
 
-<div style="border-image-source: url({borderImage})" class={twMerge('panel relative m-4 p-4', className)}>
-  {@render header?.()}
+<div
+	style="border-image-source: url({borderImage})"
+	class={twMerge('panel relative m-4 p-4', className)}
+>
+	{@render header?.()}
 	{@render children?.()}
 </div>
 

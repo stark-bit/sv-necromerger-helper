@@ -1,4 +1,3 @@
-import { goto } from "$app/navigation";
 import { type Legend } from "$lib/types";
 
 export let runeCount = $state({ ice: 0, poison: 0, blood: 0, moon: 0, death: 0, cosmic: 0 });
@@ -6,15 +5,6 @@ export let legendaryCount = $state<Record<Legend, number>>({
   lich: 0, gorgon: 0, harpy: 0, reaper: 0,
   cyclops: 0, archdemon: 0, cursed: 0, infernal: 0, colossus: 0, "robot chicken": 0, "shield bot": 0, stalker: 0
 });
-
-//$effect.root(() => {
-//  $effect(() => {
-//    const runes = Object.values(runeCount).map(String).join('-');
-//    const legendaries = Object.values(legendaryCount).map(String).join('-');
-//    const query = new URLSearchParams({ runes,legendaries }).toString();    goto( `?${query}`)
-//    //history.replaceState(null, '', `?${query}`);
-//  });
-//})
 
 export function inc(legend: Legend) {
   let count = legendaryCount[legend];

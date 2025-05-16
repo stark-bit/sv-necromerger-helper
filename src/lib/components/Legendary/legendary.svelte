@@ -1,43 +1,12 @@
 <script lang="ts">
-	let { legend }: { legend: Legend } = $props();
-	import {
-		lich,
-		gorgon,
-		harpy,
-		reaper,
-		cyclops,
-		archdemon,
-		cursed,
-		colossus,
-		infernal,
-		roboChicken,
-		shieldBot,
-		stalker,
-		NavArrow,
-		type Legend,
-		dec,
-		inc,
-		legendaryCount
-	} from '$lib';
+	import { NavArrow, dec, inc, legendaryCount } from '$lib';
+	import { legendMap, type Legend } from '$lib/assets';
 
-	const legendsLabelMap = {
-		lich,
-		gorgon,
-		harpy,
-		reaper,
-		cyclops,
-		archdemon,
-		cursed,
-		colossus,
-		infernal,
-		'robot chicken': roboChicken,
-		'shield bot': shieldBot,
-		stalker
-	};
+  let { legend }: { legend: Legend } = $props();
 </script>
 
 <div class="w-fit text-center">
-	<img src={legendsLabelMap[legend]} alt={legend} class="m-auto h-20" />
+	<img src={legendMap[legend]} alt={legend} class="m-auto h-20" />
 	<div class="capitalize">{legend}</div>
 	<div class="counter flex gap-4">
 		<NavArrow class="size-5" dir="left" prev={() => dec(legend)} />

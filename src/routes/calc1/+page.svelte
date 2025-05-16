@@ -1,14 +1,9 @@
 <script lang="ts">
-	import ice from '$lib/images/Ice_Rune_0.png';
-	import poison from '$lib/images/Poison_Rune_0.png';
-	import blood from '$lib/images/Blood_Rune_0.png';
-	import moon from '$lib/images/Moon_Rune_0.png';
-	import death from '$lib/images/Death_Rune_0.png';
-	import cosmic from '$lib/images/Cosmic_Rune_0.png';
-	import { Legendary, runeCount, type Rune, legendaryCount } from '$lib';
+	import { Legendary, runeCount, legendaryCount } from '$lib';
+	import { runeMap, runes as runeNames } from '$lib/assets';
+	import { type Rune } from '$lib/types';
 
-	const runeNames: Rune[] = ['ice', 'poison', 'blood', 'moon', 'death', 'cosmic'];
-	const runeMap = { ice, poison, blood, moon, death, cosmic };
+	//const runeNames: Rune[] = ['ice', 'poison', 'blood', 'moon', 'death', 'cosmic'];
 
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';

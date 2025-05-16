@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/images/Rift.png';
-	import reward1 from '$lib/images/Valuable_Chest.webp';
-	import reward2 from '$lib/images/Time_Piece_L1.png';
-	import reward3 from '$lib/images/Galactic_Rune_3.webp';
-	import reward4 from '$lib/images/Cosmic_Chest.webp';
+	import reward0 from '$lib/assets/images/Rift.png';
+	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
+	import reward2 from '$lib/assets/images/Time_Piece_L1.png';
+	import reward3 from '$lib/assets/images/Galactic_Rune_3.webp';
+	import reward4 from '$lib/assets/images/Cosmic_Chest.webp';
 
 	const title = 'Tier 24 feats';
 	const unlockText = 'Unlocks the Unstable Rift';

@@ -3,6 +3,7 @@
 
 
 	import '../app.css';
+  // rei TODO:
 	import BonePanel from '$lib/components/Panel/bone-panel.svelte';
 
 	let { children } = $props();

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import feat_scroll from '$lib/images/feat-scroll.png';
+	import feat_scroll from '$lib/assets/images/feat-scroll.png';
 	let {
 		title,
 		unlock,

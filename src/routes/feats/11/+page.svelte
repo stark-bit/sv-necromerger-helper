@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FeatScroll, FeatTask, FeatTaskReward } from '$lib';
-	import reward0 from '$lib/images/Lectern_L1.png';
-	import reward1 from '$lib/images/Valuable_Chest.webp';
-	import reward2 from '$lib/images/Blood_Chest.webp';
-	import reward3 from '$lib/images/Steak.webp';
-	import reward4 from '$lib/images/Moon_Rune_2.webp';
+	import reward0 from '$lib/assets/images/Lectern_L1.png';
+	import reward1 from '$lib/assets/images/Valuable_Chest.webp';
+	import reward2 from '$lib/assets/images/Blood_Chest.webp';
+	import reward3 from '$lib/assets/images/Steak.webp';
+	import reward4 from '$lib/assets/images/Moon_Rune_2.webp';
 
 	const title = 'Tier 11 feats';
 	const unlockText = 'Unlocks the Lectern';
