@@ -16,7 +16,7 @@
 	<BonePanel class="bottom-bar flex h-[240px] max-w-xl gap-4 justify-center">
 			<BottomNavLink text='feats' class="size-15 w-20 " href="/feats/1" />
 			<BottomNavLink text='calc1' class="size-15 w-20 " href="/calc1" />
-			<BottomNavLink text='calc2' class="size-15 w-20 " href="/calc2" />
+			<BottomNavLink text='calc2' class="size-15 w-20 " href="/" />
 	</BonePanel>
 </div>
 
