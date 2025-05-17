@@ -7,11 +7,13 @@
 
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+	import ResetButton from '$lib/components/Buttons/reset-button.svelte';
 
+  let query = $state('');
 	$effect(() => {
-		const runes = Object.values(runeCount).map(String).join('-');
-		const legendaries = Object.values(legendaryCount).map(String).join('-');
-		const query = new URLSearchParams({ runes, legendaries }).toString();
+		let runes = $state(Object.values(runeCount).map(String).join('-'));
+		let legendaries = $state(Object.values(legendaryCount).map(String).join('-'));
+		 query = new URLSearchParams({ runes, legendaries }).toString();
 		goto(`?${query}`);
 	});
 
@@ -50,6 +52,7 @@
 	</div>
 {/snippet}
 
+<ResetButton to='/calc1' class='absolute right-0' />
 <div class="flex justify-center gap-[8px]">
 	{#each runeNames as rune}
 		{@render runes(runeMap[rune], rune)}

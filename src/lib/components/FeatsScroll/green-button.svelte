@@ -12,7 +12,6 @@
 
 <style>
 	.panel {
-		border-image-outset: 13px 8px 25px 10px;
 		border-image-slice: 20 fill;
 		border-image-width: 40px;
 		border-image-outset: 20px 20px 5px 20px;
