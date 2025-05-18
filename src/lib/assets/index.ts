@@ -71,6 +71,7 @@ export { default as unlockAllButton } from '$lib/assets/images/Unlock_All_Tiles_
 export { default as unlockAllButton_1 } from '$lib/assets/images/Unlock_All_Tiles_Button_1.webp';
 export { default as weakeningExperiment } from '$lib/assets/images/Weakening_Experiment.webp';
 export { default as resetButton } from '$lib/assets/images/reset-button.png';
+export { default as bottomPanel } from '$lib/assets/images/Blue_Button_Inset.png';
 
 // misc
 export { default as devourerIdle } from '$lib/assets/images/Devourer_1_Idle.gif';

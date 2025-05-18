@@ -8,6 +8,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import ResetButton from '$lib/components/Buttons/reset-button.svelte';
+	import BoneDrawer from '$lib/components/Panel/bone-drawer.svelte';
 
   let query = $state('');
 	$effect(() => {
@@ -45,6 +46,8 @@
 	});
 </script>
 
+
+
 {#snippet runes(rune: string, label: Rune)}
 	<div class="">
 		<img src={rune} class="m-auto block" alt="rune" />
@@ -73,4 +76,7 @@
 	<Legendary legend="shield bot" />
 	<Legendary legend="stalker" />
 </div>
-<div class="flex-col"></div>
+<div class="flex-col "></div>
+
+
+

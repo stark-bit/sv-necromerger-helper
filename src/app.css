@@ -43,3 +43,16 @@ body {
     -1.5px 0 0 #22190a;
   letter-spacing: 2px;
 }
+
+@theme {
+  --text-shadow-necro: -1.5px -1.5px 0 #22190a,
+    0 -1.5px 0 #22190a,
+    1.5px -1.5px 0 #22190a,
+    1.5px 0 0 #22190a,
+    1.5px 1.5px 0 #22190a,
+    0 1.5px 0 #22190a,
+    -1.5px 1.5px 0 #22190a,
+    -1.5px 0 0 #22190a;
+
+
+}
