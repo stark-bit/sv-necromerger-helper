@@ -1,55 +1,57 @@
 <script lang="ts">
-	import * as Drawer from '$lib/components/Drawer';
-	import { borderImage } from '$lib/assets';
+	import * as Drawer from '$lib/components/ui/Drawer';
+	import { borderImage, close, header } from '$lib/assets';
 	import { goto } from '$app/navigation';
 
-	let { trigger, content } = $props<{ trigger?: any; content?: any }>();
+	let { trigger } = $props<{ trigger?: any }>();
 	let isOpen = $state(false);
 
 	function handleSelection(to: string) {
 		goto(to);
 		isOpen = false;
 	}
-
 </script>
 
 <Drawer.Root open={isOpen}>
-	<Drawer.Trigger onclick={() => (isOpen = true)} class="">{@render trigger?.()}</Drawer.Trigger
-	>
+	<Drawer.Trigger onclick={() => (isOpen = true)} class="">{@render trigger?.()}</Drawer.Trigger>
 	<Drawer.Content
 		style="border-image-source: url({borderImage})"
 		class="bone-panel-drawer m-auto max-w-[400px]"
 	>
-		{@render content?.()}
 		<div class="text-shadow-necro flex flex-col gap-10 p-10">
 			<button
+				style="border-image-source: url({header})"
 				onclick={() => {
 					handleSelection('/feats/1');
 				}}
-				class="bred bp2">Feats</button
+				class="bp">Feats</button
 			>
 			<button
+				style="border-image-source: url({header})"
 				onclick={() => {
 					handleSelection('/calc1');
 				}}
-				class="bred bp">Rune calculator</button
+				class="bp">Rune calculator</button
 			>
 			<button
+				style="border-image-source: url({header})"
 				onclick={() => {
 					handleSelection('/feats/2');
 				}}
-				class="bred bp">hello2</button
+				class="bp">hello2</button
 			>
 			<button
+				style="border-image-source: url({header})"
 				onclick={() => {
 					handleSelection('/feats/3');
 				}}
-				class="bred bp">hello3</button
+				class="bp">hello3</button
 			>
 		</div>
-		<Drawer.Footer>
-			<Drawer.Close>Cancel</Drawer.Close>
-		</Drawer.Footer>
+		<Drawer.Close
+			style="background-image: url({close})"
+			class="absolute top-1 right-4 size-10 bg-cover hover:opacity-50"
+		></Drawer.Close>
 	</Drawer.Content>
 </Drawer.Root>
 
@@ -62,9 +64,9 @@
 	}
 
 	.bp {
-		border-image-slice: 20 fill;
-		border-image-width: 40px 70px;
-		border-image-outset: 20px 10px;
+		border-image-slice: 16 fill;
+		border-image-width: 40px;
+		border-image-outset: 14px 10px;
 		background: none;
 	}
 </style>

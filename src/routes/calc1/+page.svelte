@@ -2,19 +2,17 @@
 	import { Legendary, runeCount, legendaryCount } from '$lib';
 	import { runeMap, runes as runeNames } from '$lib/assets';
 	import { type Rune } from '$lib/types';
-
-	//const runeNames: Rune[] = ['ice', 'poison', 'blood', 'moon', 'death', 'cosmic'];
+	import * as Accordion from '$lib/components/ui/Accordion';
 
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import ResetButton from '$lib/components/Buttons/reset-button.svelte';
-	import BoneDrawer from '$lib/components/Panel/bone-drawer.svelte';
 
-  let query = $state('');
+	let query = $state('');
 	$effect(() => {
 		let runes = $state(Object.values(runeCount).map(String).join('-'));
 		let legendaries = $state(Object.values(legendaryCount).map(String).join('-'));
-		 query = new URLSearchParams({ runes, legendaries }).toString();
+		query = new URLSearchParams({ runes, legendaries }).toString();
 		goto(`?${query}`);
 	});
 
@@ -46,8 +44,6 @@
 	});
 </script>
 
-
-
 {#snippet runes(rune: string, label: Rune)}
 	<div class="">
 		<img src={rune} class="m-auto block" alt="rune" />
@@ -55,7 +51,7 @@
 	</div>
 {/snippet}
 
-<ResetButton to='/calc1' class='absolute right-0' />
+<ResetButton to="/calc1" class="absolute right-0" />
 <div class="flex justify-center gap-[8px]">
 	{#each runeNames as rune}
 		{@render runes(runeMap[rune], rune)}
@@ -69,14 +65,20 @@
 	<Legendary legend="reaper" />
 	<Legendary legend="cyclops" />
 	<Legendary legend="archdemon" />
-	<Legendary legend="cursed" />
-	<Legendary legend="colossus" />
-	<Legendary legend="infernal" />
-	<Legendary legend="robot chicken" />
-	<Legendary legend="shield bot" />
-	<Legendary legend="stalker" />
 </div>
-<div class="flex-col "></div>
 
-
-
+<Accordion.Root>
+	<Accordion.Item class="m-auto max-w-[400px] my-[2rem]" value="item-1">
+		<Accordion.Trigger>Post Prestige</Accordion.Trigger>
+		<Accordion.Content>
+			<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
+				<Legendary legend="cursed" />
+				<Legendary legend="colossus" />
+				<Legendary legend="infernal" />
+				<Legendary legend="robot chicken" />
+				<Legendary legend="shield bot" />
+				<Legendary legend="stalker" />
+			</div>
+		</Accordion.Content>
+	</Accordion.Item>
+</Accordion.Root>

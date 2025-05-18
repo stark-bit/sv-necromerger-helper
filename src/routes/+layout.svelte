@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { BottomNavLink } from '$lib';
-	import BoneDrawer from '$lib/components/Panel/bone-drawer.svelte';
+	import BoneDrawer from '$lib/components/features/bone-drawer.svelte';
 
 	let { children } = $props();
 
@@ -12,10 +12,10 @@
 </div>
 
 {#snippet trigger()}
-	<BottomNavLink text="Nav" class="size-15 w-20 " />
+	<BottomNavLink text="Nav" class="size-15 w-20" />
 {/snippet}
 <div class="fixed right-0 bottom-0">
-	<BoneDrawer {trigger}></BoneDrawer>
+	<BoneDrawer {trigger} />
 </div>
 
 <style>

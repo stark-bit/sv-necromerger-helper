@@ -11,69 +11,70 @@ export function inc(legend: Legend) {
   if ((legend === 'cursed' || legend === 'colossus' || legend === 'infernal') && legendaryCount[legend] === 1) {
     return null;
   }
-
   if ((legend === 'shield bot' || legend === 'robot chicken') && count === 3) {
     return null;
   }
   legendaryCount[legend] = legendaryCount[legend] + 1;
-  handleRuneCount(legend, 'inc');
+  handleRuneCount(legend, 'inc', legendaryCount[legend]);
 }
+
 export function dec(legend: Legend) {
   if (legendaryCount[legend] <= 0) {
     return null;
   }
   legendaryCount[legend] = legendaryCount[legend] <= 0 ? legendaryCount[legend] : legendaryCount[legend] - 1;
-  handleRuneCount(legend, 'dec');
+  handleRuneCount(legend, 'dec', legendaryCount[legend]);
 }
 
-export function handleRuneCount(legend: Legend, action: 'inc' | 'dec') {
+export function handleRuneCount(legend: Legend, action: 'inc' | 'dec', count: number) {
   switch (legend?.toLowerCase()) {
     case 'lich':
       if (action === 'inc') {
-        runeCount.ice += 640;
+        count === 1 ? runeCount.ice += 640 : runeCount.ice += 620;
       } else {
-        runeCount.ice -= 640;
+        count === 0 ? runeCount.ice -= 640 : runeCount.ice -= 620;
       }
       break;
     case 'gorgon':
       if (action === 'inc') {
-        runeCount.poison += 640;
+        count === 1 ? runeCount.poison += 640 : runeCount.poison += 620;
       } else {
-        runeCount.poison -= 640;
+        count === 0 ? runeCount.poison -= 640 : runeCount.poison -= 620;
       }
       break;
     case 'harpy':
       if (action === 'inc') {
-        runeCount.blood += 640;
+        count === 1 ? runeCount.blood += 640 : runeCount.blood += 620;
       } else {
-        runeCount.blood -= 640;
+        count === 0 ? runeCount.blood -= 640 : runeCount.blood -= 620;
       }
       break;
     case 'reaper':
       if (action === 'inc') {
-        runeCount.ice += 1600;
-        runeCount.moon += 640;
+        count === 1 ? runeCount.ice += 1600 : runeCount.ice += 1550;
+        count === 1 ? runeCount.moon += 640 : runeCount.moon += 620;
       } else {
-        runeCount.ice -= 1600;
-        runeCount.moon -= 640;
+        count === 0 ? runeCount.ice -= 1600 : runeCount.ice -= 1550;
+        count === 0 ? runeCount.moon -= 640 : runeCount.moon -= 620;
       }
       break;
     case 'cyclops':
       if (action === 'inc') {
-        runeCount.poison += 1600;
-        runeCount.moon += 640;
+        count === 1 ? runeCount.poison += 1600 : runeCount.poison += 1550;
+        count === 1 ? runeCount.moon += 640 : runeCount.moon += 620;
+
       } else {
-        runeCount.poison -= 1600;
-        runeCount.moon -= 640;
+        count === 0 ? runeCount.poison -= 1600 : runeCount.poison -= 1550;
+        count === 0 ? runeCount.moon -= 640 : runeCount.moon -= 620;
       }
       break;
     case 'archdemon':
       if (action === 'inc') {
-        runeCount.blood += 960;
-        runeCount.death += 960;
+        count === 1 ? runeCount.blood += 960 : runeCount.blood += 930;
+        count === 1 ? runeCount.death += 960 : runeCount.death += 930;
       } else {
-        runeCount.blood -= 960;
-        runeCount.death -= 960;
+        count === 0 ? runeCount.blood -= 960 : runeCount.blood -= 930;
+        count === 0 ? runeCount.death -= 960 : runeCount.death -= 930;
       }
       break;
     case 'cursed':
@@ -105,27 +106,28 @@ export function handleRuneCount(legend: Legend, action: 'inc' | 'dec') {
       break;
     case 'robot chicken':
       if (action === 'inc') {
-        runeCount.ice += 960;
-        runeCount.poison += 480;
+        count === 1 ? runeCount.ice += 960 : runeCount.ice += 960;
+        count === 1 ? runeCount.poison += 480 : runeCount.poison += 480;
       } else {
-        runeCount.ice -= 960;
-        runeCount.poison -= 480;
+        count === 0 ? runeCount.ice -= 960 : runeCount.ice -= 960;
+        count === 0 ? runeCount.poison -= 480 : runeCount.poison -= 480;
       }
       break;
     case 'shield bot':
       if (action === 'inc') {
-        runeCount.cosmic += 640;
+        count === 1 ? runeCount.cosmic += 640 : runeCount.cosmic += 640;
+
       } else {
-        runeCount.cosmic -= 640;
+        count === 0 ? runeCount.cosmic -= 640 : runeCount.cosmic -= 640;
       }
       break;
     case 'stalker':
       if (action === 'inc') {
-        runeCount.cosmic += 800;
-        runeCount.death += 800;
+        count === 1 ? runeCount.cosmic += 800 : runeCount.cosmic += 800;
+        count === 1 ? runeCount.death += 800 : runeCount.death += 800;
       } else {
-        runeCount.cosmic -= 800;
-        runeCount.death -= 800;
+        count === 0 ? runeCount.cosmic -= 800 : runeCount.cosmic -= 800;
+        count === 0 ? runeCount.death -= 800 : runeCount.death -= 800;
       }
       break;
 

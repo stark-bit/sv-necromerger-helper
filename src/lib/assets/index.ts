@@ -50,6 +50,7 @@ export { default as energyRune1 } from '$lib/assets/images/Energy_Rune_1.webp';
 export { default as energyRune2 } from '$lib/assets/images/Energy_Rune_2.webp';
 export { default as energyRune3 } from '$lib/assets/images/Energy_Rune_3.webp';
 // UI
+export { default as close } from '$lib/assets/images/close.png';
 export { default as arrowDown } from '$lib/assets/images/Arrow_Right_1.png';
 export { default as arrowUp } from '$lib/assets/images/Arrow_Right_0.png';
 export { default as borderImage } from '$lib/assets/images/PanelBacking_Dark.png';
@@ -72,6 +73,7 @@ export { default as unlockAllButton_1 } from '$lib/assets/images/Unlock_All_Tile
 export { default as weakeningExperiment } from '$lib/assets/images/Weakening_Experiment.webp';
 export { default as resetButton } from '$lib/assets/images/reset-button.png';
 export { default as bottomPanel } from '$lib/assets/images/Blue_Button_Inset.png';
+export { default as header} from '$lib/assets/images/Small_Header_Default.webp';
 
 // misc
 export { default as devourerIdle } from '$lib/assets/images/Devourer_1_Idle.gif';
@@ -243,8 +245,6 @@ export { default as placeholder0} from '$lib/assets/images/Skeleton_L7.gif';
 export { default as placeholder0} from '$lib/assets/images/Slime.webp';
 export { default as placeholder0} from '$lib/assets/images/Slime_Golem_L3.png';
 export { default as placeholder0} from '$lib/assets/images/Slime_Vat_L4.webp';
-export { default as placeholder0} from '$lib/assets/images/Small_Header_Default.png';
-export { default as placeholder0} from '$lib/assets/images/Small_Header_Default.webp';
 export { default as placeholder0} from '$lib/assets/images/Snake_L1.gif';
 export { default as placeholder0} from '$lib/assets/images/Snake_L3.gif';
 export { default as placeholder0} from '$lib/assets/images/Soul_Grinder_L1_002.gif';
