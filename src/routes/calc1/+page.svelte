@@ -27,7 +27,7 @@
 
 			for (let i = 0; i < keys.length; i++) {
 				if (!isNaN(values[i])) {
-					legendaryCount[keys[i]] = values[i];
+					legendaryCount[keys[i] as keyof typeof legendaryCount] = values[i];
 				}
 			}
 		}
@@ -37,7 +37,7 @@
 
 			for (let i = 0; i < keys.length; i++) {
 				if (!isNaN(values[i])) {
-					runeCount[keys[i]] = values[i];
+					runeCount[keys[i] as keyof typeof runeCount] = values[i];
 				}
 			}
 		}
@@ -67,8 +67,8 @@
 	<Legendary legend="archdemon" />
 </div>
 
-<Accordion.Root>
-	<Accordion.Item class="m-auto max-w-[400px] my-[2rem]" value="item-1">
+<Accordion.Root type='multiple' value={['item-1']}>
+	<Accordion.Item class="m-auto my-[2rem] max-w-[400px]" value="item-1">
 		<Accordion.Trigger>Post Prestige</Accordion.Trigger>
 		<Accordion.Content>
 			<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
