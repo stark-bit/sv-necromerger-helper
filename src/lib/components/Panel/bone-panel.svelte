@@ -1,23 +1,35 @@
 <script lang="ts">
-	import { borderImage } from '$lib/assets';
+	import { borderImage, header } from '$lib/assets';
 	import { cn } from '$lib/utils';
-	import type { Snippet } from 'svelte';
 	let {
 		children,
 		class: className,
-		header
-	} = $props<{ children?: any; class?: string; header?: Snippet }>();
+		headerText
+	} = $props<{ children?: any; class?: string; headerText?: string }>();
 </script>
 
 <div
 	style="border-image-source: url({borderImage})"
 	class={cn('panel relative m-4 p-4', className)}
 >
-	{@render header?.()}
+	<div style="border-image-source: url({header})" class="header">
+		{headerText}
+	</div>
+
 	{@render children?.()}
 </div>
 
 <style>
+	.header {
+		border-image-slice: 17 14;
+		border-image-width: 40px;
+		border-image-outset: 15px;
+		background: none;
+		margin: -35px auto 2rem;
+		width: fit-content;
+		padding: 0px 40px;
+	}
+
 	.panel {
 		border-image-slice: 20 fill;
 		border-image-width: 40px;

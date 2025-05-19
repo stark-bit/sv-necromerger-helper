@@ -1,47 +1,10 @@
 <script lang="ts">
-	import { Legendary, runeCount, legendaryCount } from '$lib';
+	import { Legendary, runeCount } from '$lib';
 	import { runeMap, runes as runeNames } from '$lib/assets';
 	import { type Rune } from '$lib/types';
-	import * as Accordion from '$lib/components/ui/Accordion';
 
-	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
 	import ResetButton from '$lib/components/Buttons/reset-button.svelte';
-
-	let query = $state('');
-	$effect(() => {
-		let runes = $state(Object.values(runeCount).map(String).join('-'));
-		let legendaries = $state(Object.values(legendaryCount).map(String).join('-'));
-		query = new URLSearchParams({ runes, legendaries }).toString();
-		goto(`?${query}`);
-	});
-
-	onMount(() => {
-		const params = new URLSearchParams(location.search);
-		const runesParam = params.get('runes');
-		const legendariesParams = params.get('legendaries');
-
-		if (legendariesParams) {
-			const values = legendariesParams.split('-').map(Number);
-			const keys = Object.keys(legendaryCount);
-
-			for (let i = 0; i < keys.length; i++) {
-				if (!isNaN(values[i])) {
-					legendaryCount[keys[i] as keyof typeof legendaryCount] = values[i];
-				}
-			}
-		}
-		if (runesParam) {
-			const values = runesParam.split('-').map(Number);
-			const keys = Object.keys(runeCount);
-
-			for (let i = 0; i < keys.length; i++) {
-				if (!isNaN(values[i])) {
-					runeCount[keys[i] as keyof typeof runeCount] = values[i];
-				}
-			}
-		}
-	});
+	import BonePanel from '$lib/components/Panel/bone-panel.svelte';
 </script>
 
 {#snippet runes(rune: string, label: Rune)}
@@ -51,34 +14,26 @@
 	</div>
 {/snippet}
 
-<ResetButton to="/calc1" class="absolute right-0" />
-<div class="flex justify-center gap-[8px]">
-	{#each runeNames as rune}
-		{@render runes(runeMap[rune], rune)}
-	{/each}
-</div>
+<ResetButton to="/calc1" class="absolute right-0 top-0" />
+<BonePanel headerText='Rune calculator' class="m-auto mt-10 w-fit px-4 pb-10">
+	<div class="flex justify-center gap-[8px]">
+		{#each runeNames as rune}
+			{@render runes(runeMap[rune], rune)}
+		{/each}
+	</div>
 
-<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
-	<Legendary legend="lich" />
-	<Legendary legend="gorgon" />
-	<Legendary legend="harpy" />
-	<Legendary legend="reaper" />
-	<Legendary legend="cyclops" />
-	<Legendary legend="archdemon" />
-</div>
-
-<Accordion.Root type='multiple' value={['item-1']}>
-	<Accordion.Item class="m-auto my-[2rem] max-w-[400px]" value="item-1">
-		<Accordion.Trigger>Post Prestige</Accordion.Trigger>
-		<Accordion.Content>
-			<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
-				<Legendary legend="cursed" />
-				<Legendary legend="colossus" />
-				<Legendary legend="infernal" />
-				<Legendary legend="robot chicken" />
-				<Legendary legend="shield bot" />
-				<Legendary legend="stalker" />
-			</div>
-		</Accordion.Content>
-	</Accordion.Item>
-</Accordion.Root>
+	<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
+		<Legendary legend="lich" />
+		<Legendary legend="gorgon" />
+		<Legendary legend="harpy" />
+		<Legendary legend="reaper" />
+		<Legendary legend="cyclops" />
+		<Legendary legend="archdemon" />
+		<Legendary legend="cursed" />
+		<Legendary legend="colossus" />
+		<Legendary legend="infernal" />
+		<Legendary legend="robot chicken" />
+		<Legendary legend="shield bot" />
+		<Legendary legend="stalker" />
+	</div>
+</BonePanel>

@@ -1,10 +1,32 @@
 <script lang="ts">
+	import '../app.css';
+	import { runeCount, legendaryCount } from '$lib';
 	import { BottomNavLink } from '$lib';
 	import BoneDrawer from '$lib/components/features/bone-drawer.svelte';
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	let { children } = $props();
 
-	import '../app.css';
+	import {
+		deSerialize,
+		paramState,
+		serialize,
+		updateParams
+	} from '$lib/utils/url-param-state.svelte';
+
+	$effect(() => {
+		const runes = $state(serialize(runeCount));
+		const legendaries = $state(serialize(legendaryCount));
+		updateParams({ runes, legendaries });
+		goto(`?${paramState.value}`);
+	});
+
+	onMount(() => {
+		const params = new URLSearchParams(location.search);
+		deSerialize(params.get('runes'), runeCount);
+		deSerialize(params.get('legendaries'), legendaryCount);
+	});
 </script>
 
 <div class="px-2 md:px-4 lg:px-8">

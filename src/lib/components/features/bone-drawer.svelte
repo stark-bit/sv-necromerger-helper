@@ -2,14 +2,20 @@
 	import * as Drawer from '$lib/components/ui/Drawer';
 	import { borderImage, close, header } from '$lib/assets';
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 
 	let { trigger } = $props<{ trigger?: any }>();
 	let isOpen = $state(false);
 
 	function handleSelection(to: string) {
-		goto(to);
+		goto(to+'?'+params);
 		isOpen = false;
 	}
+
+  let params = $state();
+  onMount(() => {
+		params = new URLSearchParams(location.search);
+  });
 </script>
 
 <Drawer.Root open={isOpen}>
@@ -38,7 +44,7 @@
 				onclick={() => {
 					handleSelection('/feats/2');
 				}}
-				class="bp">hello2</button
+				class="bp">Time shards</button
 			>
 			<button
 				style="border-image-source: url({header})"
