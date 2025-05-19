@@ -25,7 +25,7 @@
 		border-image-width: 40px;
 		border-image-outset: 15px;
 		background: none;
-		margin: -35px auto 2rem;
+		margin: -35px auto 1rem;
 		width: fit-content;
 		padding: 0px 40px;
 	}

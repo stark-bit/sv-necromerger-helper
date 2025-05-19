@@ -14,7 +14,7 @@
 	</div>
 {/snippet}
 
-<ResetButton to="/calc1" class="absolute right-0 top-0" />
+<ResetButton to="/calc1" class="absolute right-0 top-0 z-50" />
 <BonePanel headerText='Rune calculator' class="m-auto mt-10 w-fit px-4 pb-10">
 	<div class="flex justify-center gap-[8px]">
 		{#each runeNames as rune}
