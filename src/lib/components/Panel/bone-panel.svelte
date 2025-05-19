@@ -23,7 +23,7 @@
 	.header {
 		border-image-slice: 17 14;
 		border-image-width: 40px;
-		border-image-outset: 15px;
+		border-image-outset: 13px;
 		background: none;
 		margin: -35px auto 1rem;
 		width: fit-content;

@@ -46,6 +46,10 @@
 		color: white;
 	}
 
+  :global(body) {
+    padding-bottom: 40px;
+  }
+
 	:global(.bottom-bar) {
 		margin: 0 auto;
 		padding-top: 0;

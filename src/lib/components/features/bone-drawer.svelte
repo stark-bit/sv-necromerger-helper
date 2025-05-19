@@ -70,9 +70,9 @@
 	}
 
 	.bp {
-		border-image-slice: 16 fill;
+		border-image-slice: 16 18;
 		border-image-width: 40px;
-		border-image-outset: 14px 10px;
+		border-image-outset: 13px 0px;
 		background: none;
 	}
 </style>
