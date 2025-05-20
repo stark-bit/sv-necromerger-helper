@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { runeCount, legendaryCount } from '$lib';
 	import { BottomNavLink } from '$lib';
-	import BoneDrawer from '$lib/components/features/bone-drawer.svelte';
+	import BoneDrawerNav from '$lib/components/features/bone-drawer-nav.svelte';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
@@ -14,18 +14,20 @@
 		serialize,
 		updateParams
 	} from '$lib/utils/url-param-state.svelte';
-
-	$effect(() => {
-		const runes = $state(serialize(runeCount));
-		const legendaries = $state(serialize(legendaryCount));
-		updateParams({ runes, legendaries });
-		goto(`?${paramState.value}`);
-	});
-
+	import { page } from '$app/state';
 	onMount(() => {
-		const params = new URLSearchParams(location.search);
+		const params = page.url.searchParams;
 		deSerialize(params.get('runes'), runeCount);
 		deSerialize(params.get('legendaries'), legendaryCount);
+	});
+
+	$effect(() => {
+		updateParams({ runes: serialize(runeCount), legendaries: serialize(legendaryCount) });
+
+    // without checking for error, will cause infinite rerender loop on 404 pages
+		if (!page.error) {
+			goto(`?${paramState.value}`);
+		}
 	});
 </script>
 
@@ -37,7 +39,7 @@
 	<BottomNavLink text="Nav" class="size-15 w-20" />
 {/snippet}
 <div class="fixed right-0 bottom-0">
-	<BoneDrawer {trigger} />
+	<BoneDrawerNav {trigger} />
 </div>
 
 <style>
@@ -46,9 +48,9 @@
 		color: white;
 	}
 
-  :global(body) {
-    padding-bottom: 40px;
-  }
+	:global(body) {
+		padding-bottom: 40px;
+	}
 
 	:global(.bottom-bar) {
 		margin: 0 auto;

@@ -15,7 +15,7 @@
 {/snippet}
 
 <BonePanel headerText='Rune calculator' class="relative m-auto mt-10 w-fit px-4 pb-10">
-  <ResetButton to="/calc1" class="absolute right-0 top-2 z-50 opacity-70 focus:opacity-100" />
+  <ResetButton to="/rune-calc" class="absolute right-0 top-2 z-50 opacity-70 focus:opacity-100" />
 	<div class="flex justify-center gap-[8px]">
 		{#each runeNames as rune}
 			{@render runes(runeMap[rune], rune)}

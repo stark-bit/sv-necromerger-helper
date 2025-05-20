@@ -25,19 +25,19 @@
 		class="bone-panel-drawer m-auto max-w-[400px]"
 	>
 		<div class="text-shadow-necro flex flex-col gap-10 p-10">
+      <button
+        style="border-image-source: url({header})"
+        onclick={() => {
+          handleSelection('/rune-calc');
+        }}
+        class="bp">Rune calculator</button
+      >
 			<button
 				style="border-image-source: url({header})"
 				onclick={() => {
 					handleSelection('/feats/1');
 				}}
 				class="bp">Feats</button
-			>
-			<button
-				style="border-image-source: url({header})"
-				onclick={() => {
-					handleSelection('/calc1');
-				}}
-				class="bp">Rune calculator</button
 			>
 			<button
 				style="border-image-source: url({header})"
