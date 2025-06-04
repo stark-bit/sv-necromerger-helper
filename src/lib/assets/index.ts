@@ -112,6 +112,7 @@ export { default as shieldBotAll } from '$lib/assets/images/Shield_Bot_All.gif';
 export { default as soulGrinder1 } from '$lib/assets/images/Soul_Grinder_L1.gif';
 export { default as prismIce1 } from '$lib/assets/images/Prism_L1_Ice.png';
 export { default as rift } from '$lib/assets/images/Rift.png';
+export { default as timeShard } from '$lib/assets/images/Time_Shard.png';
 export { default as timePiece1 } from '$lib/assets/images/Time_Piece_L1.png';
 export { default as timePiece2} from '$lib/assets/images/Time_Piece_L2.png';
 export { default as timePiece3} from '$lib/assets/images/Time_Piece_L3.png';

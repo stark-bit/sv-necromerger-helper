@@ -8,14 +8,14 @@
 	let isOpen = $state(false);
 
 	function handleSelection(to: string) {
-		goto(to+'?'+params);
+		goto(to + '?' + params);
 		isOpen = false;
 	}
 
-  let params = $state();
-  onMount(() => {
+	let params = $state();
+	onMount(() => {
 		params = new URLSearchParams(location.search);
-  });
+	});
 </script>
 
 <Drawer.Root open={isOpen}>
@@ -25,13 +25,13 @@
 		class="bone-panel-drawer m-auto max-w-[400px]"
 	>
 		<div class="text-shadow-necro flex flex-col gap-10 p-10">
-      <button
-        style="border-image-source: url({header})"
-        onclick={() => {
-          handleSelection('/rune-calc');
-        }}
-        class="bp">Rune calculator</button
-      >
+			<button
+				style="border-image-source: url({header})"
+				onclick={() => {
+					handleSelection('/rune-calc');
+				}}
+				class="bp">Rune calculator</button
+			>
 			<button
 				style="border-image-source: url({header})"
 				onclick={() => {
@@ -42,16 +42,16 @@
 			<button
 				style="border-image-source: url({header})"
 				onclick={() => {
-					handleSelection('/feats/2');
+					handleSelection('/time-shard-calc');
 				}}
-				class="bp">Time shards</button
+				class="bp">Time shard calc</button
 			>
 			<button
 				style="border-image-source: url({header})"
 				onclick={() => {
-					handleSelection('/feats/3');
+					handleSelection('/devourer');
 				}}
-				class="bp">hello3</button
+				class="bp">Devourer</button
 			>
 		</div>
 		<Drawer.Close

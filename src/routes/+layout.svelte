@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { runeCount, legendaryCount } from '$lib';
 	import { BottomNavLink } from '$lib';
-	import BoneDrawerNav from '$lib/components/features/bone-drawer-nav.svelte';
+	import BoneDrawerNav from '$lib/modules/bone-drawer-nav.svelte';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
