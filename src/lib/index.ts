@@ -20,5 +20,11 @@ export { default as LegendaryModal } from '$lib/modules/legendary-modal.svelte';
 export * from '$lib/types';
 
 // hooks
-export { runeCount, legendaryCount, inc, dec, handleRuneCount } from '$lib/hooks/legendary-cost.svelte';
+export {
+	runeCount,
+	legendaryCount,
+	inc,
+	dec,
+	handleRuneCount
+} from '$lib/hooks/legendary-cost.svelte';
 export { feats, level, other, shards } from '$lib/hooks/time-shard-calculation.svelte';

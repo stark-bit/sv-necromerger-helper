@@ -1,9 +1,9 @@
 // legendaries
-export { default as lichBig }  from '$lib/assets/images/Lich.gif';
+export { default as lichBig } from '$lib/assets/images/Lich.gif';
 export { default as gorgonBig } from '$lib/assets/images/Gorgon_002.gif';
 export { default as harpyBig } from '$lib/assets/images/Harpy_002.gif';
 export { default as reaperBig } from '$lib/assets/images/Reaper.gif';
-export { default as cyclopsBig } from '$lib/assets/images/Cyclops_002.gif'
+export { default as cyclopsBig } from '$lib/assets/images/Cyclops_002.gif';
 export { default as archdemonBig } from '$lib/assets/images/Archdemon_002.gif';
 export { default as soulStalkerBig } from '$lib/assets/images/Soul_Stalker_002.gif';
 import lich from '$lib/assets/images/Lich.gif';
@@ -54,7 +54,7 @@ export { default as close } from '$lib/assets/images/close.png';
 export { default as arrowDown } from '$lib/assets/images/Arrow_Right_1.png';
 export { default as arrowUp } from '$lib/assets/images/Arrow_Right_0.png';
 export { default as borderImage } from '$lib/assets/images/PanelBacking_Dark.png';
-export { default as panel} from '$lib/assets/images/PanelBacking.webp';
+export { default as panel } from '$lib/assets/images/PanelBacking.webp';
 export { default as bestiaryButton } from '$lib/assets/images/Bestiary_Button_0.webp';
 export { default as bestiaryButton_1 } from '$lib/assets/images/Bestiary_Button_1.webp';
 export { default as purchaseButton } from '$lib/assets/images/Birthday_Purchase_Button_0.webp';
@@ -74,9 +74,9 @@ export { default as unlockAllButton_1 } from '$lib/assets/images/Unlock_All_Tile
 export { default as weakeningExperiment } from '$lib/assets/images/Weakening_Experiment.webp';
 export { default as resetButton } from '$lib/assets/images/reset-button.png';
 export { default as bottomPanel } from '$lib/assets/images/Blue_Button_Inset.png';
-export { default as header} from '$lib/assets/images/Small_Header_Default.webp';
-export { default as feat_scroll} from '$lib/assets/images/feat-scroll.png';
-export { default as checkmark} from '$lib/assets/images/checkmark.png';
+export { default as header } from '$lib/assets/images/Small_Header_Default.webp';
+export { default as feat_scroll } from '$lib/assets/images/feat-scroll.png';
+export { default as checkmark } from '$lib/assets/images/checkmark.png';
 
 // misc
 export { default as devourerIdle } from '$lib/assets/images/Devourer_1_Idle.gif';
@@ -117,8 +117,8 @@ export { default as prismIce1 } from '$lib/assets/images/Prism_L1_Ice.png';
 export { default as rift } from '$lib/assets/images/Rift.png';
 export { default as timeShard } from '$lib/assets/images/Time_Shard.png';
 export { default as timePiece1 } from '$lib/assets/images/Time_Piece_L1.png';
-export { default as timePiece2} from '$lib/assets/images/Time_Piece_L2.png';
-export { default as timePiece3} from '$lib/assets/images/Time_Piece_L3.png';
+export { default as timePiece2 } from '$lib/assets/images/Time_Piece_L2.png';
+export { default as timePiece3 } from '$lib/assets/images/Time_Piece_L3.png';
 export { default as unexpectedParcel1 } from '$lib/assets/images/Unexpected_Parcel_L1.png';
 export { default as unexpectedParcel2 } from '$lib/assets/images/Unexpected_Parcel_L2.png';
 export { default as unexpectedParcel3 } from '$lib/assets/images/Unexpected_Parcel_L3.png';
@@ -280,41 +280,45 @@ export { default as placeholder0} from '$lib/assets/images/static-devourer.png';
 
 //
 export const legends = [
-  'lich',
-  'gorgon',
-  'harpy',
-  'reaper',
-  'cyclops',
-  'archdemon',
-  'cursed',
-  'colossus',
-  'infernal',
-  'robot chicken',
-  'shield bot',
-  'stalker'
+	'lich',
+	'gorgon',
+	'harpy',
+	'reaper',
+	'cyclops',
+	'archdemon',
+	'cursed',
+	'colossus',
+	'infernal',
+	'robot chicken',
+	'shield bot',
+	'stalker'
 ] as const;
 
 export const runes = ['ice', 'poison', 'blood', 'moon', 'death', 'cosmic'] as const;
 
-export type Legend = typeof legends[number];
-export type Rune = typeof runes[number];
+export type Legend = (typeof legends)[number];
+export type Rune = (typeof runes)[number];
 
 export const legendMap: Record<Legend, any> = {
-  lich,
-  gorgon,
-  harpy,
-  reaper,
-  cyclops,
-  archdemon,
-  cursed,
-  colossus,
-  infernal,
-  'robot chicken': roboChicken,
-  'shield bot': shieldBot,
-  stalker
+	lich,
+	gorgon,
+	harpy,
+	reaper,
+	cyclops,
+	archdemon,
+	cursed,
+	colossus,
+	infernal,
+	'robot chicken': roboChicken,
+	'shield bot': shieldBot,
+	stalker
 };
 
 export const runeMap: Record<Rune, any> = {
-  ice, poison, blood, moon, death, cosmic
-}
-
+	ice,
+	poison,
+	blood,
+	moon,
+	death,
+	cosmic
+};

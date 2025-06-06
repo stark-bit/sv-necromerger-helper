@@ -2,7 +2,7 @@
 	import { NavArrow, dec, inc, legendaryCount } from '$lib';
 	import { legendMap, type Legend } from '$lib/assets';
 
-  let { legend }: { legend: Legend } = $props();
+	let { legend }: { legend: Legend } = $props();
 </script>
 
 <div class="w-fit text-center">
