@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { Legendary, runeCount } from '$lib';
 	import { runeMap, runes as runeNames } from '$lib/assets';
 	import { type Rune } from '$lib/types';
 
-	import ResetButton from '$lib/components/Buttons/reset-button.svelte';
-	import BonePanel from '$lib/components/Panel/bone-panel.svelte';
+	import { Legendary, runeCount, ResetButton, BonePanel } from '$lib';
 </script>
 
 {#snippet runes(rune: string, label: Rune)}

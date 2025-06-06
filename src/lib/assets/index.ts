@@ -54,6 +54,7 @@ export { default as close } from '$lib/assets/images/close.png';
 export { default as arrowDown } from '$lib/assets/images/Arrow_Right_1.png';
 export { default as arrowUp } from '$lib/assets/images/Arrow_Right_0.png';
 export { default as borderImage } from '$lib/assets/images/PanelBacking_Dark.png';
+export { default as panel} from '$lib/assets/images/PanelBacking.webp';
 export { default as bestiaryButton } from '$lib/assets/images/Bestiary_Button_0.webp';
 export { default as bestiaryButton_1 } from '$lib/assets/images/Bestiary_Button_1.webp';
 export { default as purchaseButton } from '$lib/assets/images/Birthday_Purchase_Button_0.webp';
@@ -74,6 +75,8 @@ export { default as weakeningExperiment } from '$lib/assets/images/Weakening_Exp
 export { default as resetButton } from '$lib/assets/images/reset-button.png';
 export { default as bottomPanel } from '$lib/assets/images/Blue_Button_Inset.png';
 export { default as header} from '$lib/assets/images/Small_Header_Default.webp';
+export { default as feat_scroll} from '$lib/assets/images/feat-scroll.png';
+export { default as checkmark} from '$lib/assets/images/checkmark.png';
 
 // misc
 export { default as devourerIdle } from '$lib/assets/images/Devourer_1_Idle.gif';
@@ -218,8 +221,6 @@ export { default as placeholder0} from '$lib/assets/images/Mummy_L5.gif';
 export { default as placeholder0} from '$lib/assets/images/Necromancer.gif';
 export { default as placeholder0} from '$lib/assets/images/Ogre.gif';
 export { default as placeholder0} from '$lib/assets/images/Paladin.gif';
-export { default as placeholder0} from '$lib/assets/images/PanelBacking.webp';
-export { default as placeholder0} from '$lib/assets/images/PanelBacking_Dark.png';
 export { default as placeholder0} from '$lib/assets/images/Peasant.gif';
 export { default as placeholder0} from '$lib/assets/images/Pegasus.png';
 export { default as placeholder0} from '$lib/assets/images/Pestule_D.gif';
@@ -272,9 +273,7 @@ export { default as placeholder0} from '$lib/assets/images/Werewolf_L1.gif';
 export { default as placeholder0} from '$lib/assets/images/Werewolf_L5.gif';
 export { default as placeholder0} from '$lib/assets/images/Zombie_L3.gif';
 export { default as placeholder0} from '$lib/assets/images/Zombie_L6.gif';
-export { default as placeholder0} from '$lib/assets/images/checkmark.png';
 export { default as placeholder0} from '$lib/assets/images/fandom-app-icon.webp';
-export { default as placeholder0} from '$lib/assets/images/feat-scroll.png';
 export { default as placeholder0} from '$lib/assets/images/green_button.png';
 export { default as placeholder0} from '$lib/assets/images/static-devourer.png';
 */

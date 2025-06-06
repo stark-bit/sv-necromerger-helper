@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Legendary } from '$lib';
 	import { borderImage } from '$lib/assets';
-	import * as Dialog from '$lib/components/dialog';
+	import * as Dialog from '$lib/components/ui/Dialog';
 	import { Button } from 'bits-ui';
 </script>
 
@@ -40,7 +40,7 @@
 
 <style>
 	:global(.legendary-button) {
-		border-image-slice: 30 fill;
+		border-image-slice: 20 fill;
 		border-image-width: 50px;
 	}
 </style>

@@ -8,9 +8,17 @@ export { default as FeatTaskReward } from '$lib/components/FeatsScroll/feat-task
 export { default as GreenButton } from '$lib/components/FeatsScroll/green-button.svelte';
 export { default as Legendary } from '$lib/components/Legendary/legendary.svelte';
 export { default as NavArrow } from '$lib/components/NavArrow/nav-arrow.svelte';
+export { default as BoneDrawerNav } from '$lib/modules/bone-drawer-nav.svelte';
+export { Label } from '$lib/components/ui/Label';
+export { default as Slider } from '$lib/components/ui/Slider/slider.svelte';
+export { default as ResetButton } from '$lib/components/Buttons/reset-button.svelte';
+
+// features
+export { default as LegendaryModal } from '$lib/modules/legendary-modal.svelte';
 
 // helpers
 export * from '$lib/types';
-export * from '$lib/utils/legendary-cost.svelte';
 
-// files
+// hooks
+export { runeCount, legendaryCount, inc, dec, handleRuneCount } from '$lib/hooks/legendary-cost.svelte';
+export { feats, level, other, shards } from '$lib/hooks/time-shard-calculation.svelte';

@@ -1,13 +1,11 @@
 <script lang="ts">
-	import header from '$lib/assets/images/Small_Header_Default.png';
-	import { twMerge } from 'tailwind-merge';
+	import { header } from '$lib/assets';
+	import { cn } from '$lib/utils';
+
 	let { children, klass } = $props<{ children: any; klass: string }>();
 </script>
 
-<div
-	style="border-image-source: url({header})"
-	class={twMerge('panel m-2 p-2 relative', klass)}
->
+<div style="border-image-source: url({header})" class={cn('panel relative m-2 p-2', klass)}>
 	{@render children()}
 </div>
 

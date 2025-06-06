@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
+	import { cn } from '$lib/utils';
 	import { arrowDown, arrowUp } from '$lib/assets';
 
 	let {
@@ -20,7 +20,7 @@
 
 {#if dir === 'left'}
 	<button
-		class={twMerge('scale-x-[-1]', className)}
+		class={cn('scale-x-[-1]', className)}
 		onclick={prev}
 		ontouchstart={() => (leftArrow = arrowDown)}
 		ontouchend={() => (leftArrow = arrowUp)}
@@ -30,7 +30,7 @@
 	</button>
 {:else}
 	<button
-		class={twMerge(className)}
+		class={cn(className)}
 		onclick={next}
 		ontouchstart={() => (rightArrow = arrowDown)}
 		ontouchend={() => (rightArrow = arrowUp)}

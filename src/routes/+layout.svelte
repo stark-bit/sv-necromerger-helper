@@ -1,8 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import { runeCount, legendaryCount } from '$lib';
-	import { BottomNavLink } from '$lib';
-	import BoneDrawerNav from '$lib/modules/bone-drawer-nav.svelte';
+	import { runeCount, legendaryCount, BottomNavLink, BoneDrawerNav } from '$lib';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
@@ -24,7 +22,7 @@
 	$effect(() => {
 		updateParams({ runes: serialize(runeCount), legendaries: serialize(legendaryCount) });
 
-    // without checking for error, will cause infinite rerender loop on 404 pages
+		// without checking for error, will cause infinite rerender loop on 404 pages
 		if (!page.error) {
 			goto(`?${paramState.value}`);
 		}

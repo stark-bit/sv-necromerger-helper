@@ -1,13 +1,11 @@
 <script lang="ts">
-	import { Label } from '$lib/components/label';
-	import BonePanel from '$lib/components/Panel/bone-panel.svelte';
-	import Slider from '$lib/components/ui/Slider/slider.svelte';
-	import LegendaryModal from '$lib/modules/legendary-modal.svelte';
-	import { level, feats, other, shards } from '$lib/utils/time-shard-calculation.svelte';
+	import { LegendaryModal, BonePanel, Label, Slider, feats, level, other, shards } from '$lib';
 
-  function formatNumber(number:number) {
-  return new Intl.NumberFormat("en-IN", { maximumSignificantDigits: 10 }).format(Math.floor(number))
-  }
+	function formatNumber(number: number) {
+		return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 10 }).format(
+			Math.floor(number)
+		);
+	}
 </script>
 
 <BonePanel
@@ -29,12 +27,19 @@
 		</div>
 		<div class="input">
 			<Label class="mb-4 text-lg" for="feats">Feats: {feats.value}</Label>
-			<Slider id="feats" class="" type="single" bind:value={feats.value} min={1} max={30} step={1} />
+			<Slider
+				id="feats"
+				class=""
+				type="single"
+				bind:value={feats.value}
+				min={1}
+				max={30}
+				step={1}
+			/>
 		</div>
 
 		<div class="input">
-			<Label class="mb-4 text-lg" for="legendaries">Legendaries: {shards.legendary}%
-      </Label>
+			<Label class="mb-4 text-lg" for="legendaries">Legendaries: {shards.legendary}%</Label>
 			<LegendaryModal />
 		</div>
 
@@ -51,15 +56,15 @@
 			/>
 		</div>
 		<div class="input">
-      Devourer: {formatNumber(shards.level)}
-      <br>
-      Feats: {shards.feats}%
-      <br>
-      other: {shards.other}%
-      <br>
-      legendary: {shards.legendary}%
-      <br>
-      Total: {formatNumber(shards.total)}
+			Devourer: {formatNumber(shards.level)}
+			<br />
+			Feats: {shards.feats}%
+			<br />
+			other: {shards.other}%
+			<br />
+			legendary: {shards.legendary}%
+			<br />
+			Total: {formatNumber(shards.total)}
 		</div>
 	</div>
 </BonePanel>
