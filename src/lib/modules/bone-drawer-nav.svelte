@@ -46,13 +46,6 @@
 				}}
 				class="bp">Time shard calc</button
 			>
-			<button
-				style="border-image-source: url({header})"
-				onclick={() => {
-					handleSelection('/devourer');
-				}}
-				class="bp">Devourer</button
-			>
 		</div>
 		<Drawer.Close
 			style="background-image: url({close})"
@@ -74,5 +67,8 @@
 		border-image-width: 40px;
 		border-image-outset: 13px 0px;
 		background: none;
+    &:active {
+      opacity: .8;
+    }
 	}
 </style>
