@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { NavArrow } from '$lib';
+	import { NavArrow, Slider } from '$lib';
 	import { onDestroy, onMount } from 'svelte';
 	let { children } = $props();
 
@@ -10,6 +10,16 @@
 		const parts = url.pathname.split('/').filter(Boolean);
 		return parts.at(-1) ?? '';
 	}
+
+	let pageState = $state(1);
+
+	const handleSliderPageChange = (page: number) => {
+		goto(String(page));
+	};
+
+	$effect(() => {
+		handleSliderPageChange(pageNum);
+	});
 
 	let pageNum: number = $state(1);
 
@@ -54,8 +64,9 @@
 
 <div class="">
 	{@render children()}
-	<div class="flex justify-center gap-10">
+	<div class="flex justify-center gap-10 max-w-[400px] m-auto">
 		<NavArrow {prev} dir="left" />
+		<Slider id="page" class="" type="single" bind:value={pageNum} min={1} max={30} step={1} />
 		<NavArrow {next} dir="right" />
 	</div>
 </div>
