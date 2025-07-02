@@ -5,11 +5,9 @@
 	let {
 		dir = 'right',
 		class: className,
-		next,
-		prev
+		onclick,
 	}: {
-		next?: () => void;
-		prev?: () => void;
+		onclick?: () => void;
 		dir?: 'left' | 'right';
 		class?: string;
 	} = $props();
@@ -21,7 +19,7 @@
 {#if dir === 'left'}
 	<button
 		class={cn('scale-x-[-1]', className)}
-		onclick={prev}
+		{onclick}
 		ontouchstart={() => (leftArrow = arrowDown)}
 		ontouchend={() => (leftArrow = arrowUp)}
 		onmousedown={() => (leftArrow = arrowDown)}
@@ -31,7 +29,7 @@
 {:else}
 	<button
 		class={cn(className)}
-		onclick={next}
+		{onclick}
 		ontouchstart={() => (rightArrow = arrowDown)}
 		ontouchend={() => (rightArrow = arrowUp)}
 		onmousedown={() => (rightArrow = arrowDown)}

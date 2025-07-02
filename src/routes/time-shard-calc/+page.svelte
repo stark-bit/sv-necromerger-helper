@@ -1,5 +1,15 @@
 <script lang="ts">
-	import { LegendaryModal, BonePanel, Label, Slider, feats, level, other, shards } from '$lib';
+	import {
+		LegendaryModal,
+		BonePanel,
+		Label,
+		Slider,
+		feats,
+		level,
+		other,
+		shards,
+		NavArrow
+	} from '$lib';
 
 	function formatNumber(number: number) {
 		return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 10 }).format(
@@ -15,6 +25,8 @@
 	<div class="flex flex-col">
 		<div class="input">
 			<Label class="mb-4 text-lg" for="devourer-level">Devourer: {level.value}</Label>
+      <div class="flex gap-4">
+			<NavArrow onclick={() => (level.value -= 1)} dir="left" />
 			<Slider
 				id="devourer-level"
 				class=""
@@ -24,18 +36,24 @@
 				max={500}
 				step={1}
 			/>
+			<NavArrow onclick={() => (level.value += 1)} dir="right" />
+        </div>
 		</div>
 		<div class="input">
 			<Label class="mb-4 text-lg" for="feats">Feats: {feats.value}</Label>
-			<Slider
-				id="feats"
-				class=""
-				type="single"
-				bind:value={feats.value}
-				min={1}
-				max={30}
-				step={1}
-			/>
+			<div class="flex gap-4">
+				<NavArrow onclick={() => (feats.value -= 1)} dir="left" />
+				<Slider
+					id="feats"
+					class=""
+					type="single"
+					bind:value={feats.value}
+					min={1}
+					max={30}
+					step={1}
+				/>
+				<NavArrow onclick={() => (feats.value += 1)} dir="right" />
+			</div>
 		</div>
 
 		<div class="input">
@@ -44,16 +62,20 @@
 		</div>
 
 		<div class="input">
-			<Label class="mb-4 text-lg" for="devourer-level">Other: {other.value}%</Label>
-			<Slider
-				id="devourer-level"
-				class=""
-				type="single"
-				bind:value={other.value}
-				min={100}
-				max={500}
-				step={1}
-			/>
+			<Label class="mb-4 text-lg" for="other">Other: {other.value}%</Label>
+			<div class="flex gap-4">
+				<NavArrow onclick={() => (other.value -= 1)} dir="left" />
+				<Slider
+					id="other"
+					class=""
+					type="single"
+					bind:value={other.value}
+					min={100}
+					max={500}
+					step={1}
+				/>
+				<NavArrow onclick={() => (other.value += 1)} dir="right" />
+			</div>
 		</div>
 		<div class="input">
 			Devourer: {formatNumber(shards.level)}

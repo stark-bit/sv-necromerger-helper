@@ -9,8 +9,8 @@
 	<img src={legendMap[legend]} alt={legend} class="m-auto h-20" />
 	<div class="capitalize">{legend}</div>
 	<div class="counter flex gap-4">
-		<NavArrow class="size-5" dir="left" prev={() => dec(legend)} />
+		<NavArrow class="size-5" dir="left" onclick={() => dec(legend)} />
 		<div aria-label="count" class="">{legendaryCount[legend]}</div>
-		<NavArrow class="size-5" next={() => inc(legend)} />
+		<NavArrow class="size-5" onclick={() => inc(legend)} />
 	</div>
 </div>

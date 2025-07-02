@@ -63,8 +63,8 @@
 <div class="">
 	{@render children()}
 	<div class="flex justify-center gap-10 max-w-[400px] m-auto">
-		<NavArrow {prev} dir="left" />
+		<NavArrow onclick={prev} dir="left" />
 		<Slider id="page" class="" type="single" bind:value={pageNum} min={1} max={30} step={1} />
-		<NavArrow {next} dir="right" />
+		<NavArrow onclick={next} dir="right" />
 	</div>
 </div>
