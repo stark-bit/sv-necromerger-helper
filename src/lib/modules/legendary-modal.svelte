@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { Legendary } from '$lib';
+	import { Legendary, RuneScore } from '$lib';
 	import { borderImage } from '$lib/assets';
+	import { runeMap, runes as runeNames } from '$lib/assets';
 	import * as Dialog from '$lib/components/ui/Dialog';
 	import { Button } from 'bits-ui';
 </script>
@@ -18,6 +19,12 @@
 	</Dialog.Trigger>
 	<Dialog.Content>
 		<Dialog.Header>
+			<div class="flex justify-center gap-[8px]">
+				{#each runeNames as rune (rune)}
+					<RuneScore rune={runeMap[rune]} label={rune} />
+				{/each}
+			</div>
+
 			<Dialog.Description>
 				<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
 					<Legendary legend="lich" />

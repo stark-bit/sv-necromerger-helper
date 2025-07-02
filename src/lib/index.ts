@@ -12,6 +12,7 @@ export { default as BoneDrawerNav } from '$lib/modules/bone-drawer-nav.svelte';
 export { Label } from '$lib/components/ui/Label';
 export { default as Slider } from '$lib/components/ui/Slider/slider.svelte';
 export { default as ResetButton } from '$lib/components/Buttons/reset-button.svelte';
+export { default as RuneScore } from '$lib/components/RuneScore/rune-score.svelte';
 
 // features
 export { default as LegendaryModal } from '$lib/modules/legendary-modal.svelte';

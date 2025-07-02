@@ -1,6 +1,6 @@
-import { type Legend } from '$lib/types';
+import { type Legend, type Rune } from '$lib/types';
 
-export const runeCount = $state({ ice: 0, poison: 0, blood: 0, moon: 0, death: 0, cosmic: 0 });
+export const runeCount = $state<Record<Rune, number>>({ ice: 0, poison: 0, blood: 0, moon: 0, death: 0, cosmic: 0 });
 export const legendaryCount = $state<Record<Legend, number>>({
 	lich: 0,
 	gorgon: 0,
