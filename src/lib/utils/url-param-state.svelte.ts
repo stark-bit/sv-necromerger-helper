@@ -1,7 +1,13 @@
 export let paramState = $state({ value: '' });
 
-export function updateParams({ runes, legendaries }: { runes: string; legendaries: string }) {
-	paramState.value = new URLSearchParams({ runes, legendaries }).toString();
+export function updateParams({
+	runes,
+	legendaries,
+	level,
+	feats,
+	other
+}: { runes: string; legendaries: string; level: string; feats: string; other: string }) {
+	paramState.value = new URLSearchParams({ runes, legendaries, level, feats, other }).toString();
 }
 
 export function serialize(obj: Record<string, number>, separator = '-') {

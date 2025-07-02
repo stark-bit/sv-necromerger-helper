@@ -11,8 +11,6 @@
 		return parts.at(-1) ?? '';
 	}
 
-	let pageState = $state(1);
-
 	const handleSliderPageChange = (page: number) => {
 		goto(String(page));
 	};
