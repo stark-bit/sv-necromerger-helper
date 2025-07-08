@@ -12,29 +12,22 @@
 	}
 
 	const handleSliderPageChange = (page: number) => {
-		goto(String(page));
+		goto(`${page}?${searchParams}`);
 	};
 
 	$effect(() => {
 		handleSliderPageChange(pageNum);
 	});
 
-	let pageNum: number = $state(1);
-
-	onMount(() => {
-		pageNum = Number(getLastSegment(page.url));
-	});
-
-	$effect(() => {
-		pageNum = Number(getLastSegment(page.url));
-	});
+	let pageNum: number = $derived(Number(getLastSegment(page.url)));
+  let searchParams = $state(page.url.searchParams.toString());
 
 	function prev() {
-		goto(String(pageNum > 1 ? pageNum - 1 : pageNum));
+		goto(`${pageNum > 1 ? pageNum - 1 : pageNum}${page.url.search}`);
 	}
 
 	function next() {
-		goto(String(pageNum < 30 ? pageNum + 1 : pageNum));
+		goto(`${pageNum < 30 ? pageNum + 1 : pageNum}${page.url.search}`);
 	}
 	function handleKey(e: KeyboardEvent) {
 		if (e.key === 'ArrowRight') {
