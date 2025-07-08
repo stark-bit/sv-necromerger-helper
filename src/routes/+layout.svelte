@@ -1,6 +1,14 @@
 <script lang="ts">
 	import '../app.css';
-	import { runeCount, legendaryCount, BottomNavLink, BoneDrawerNav, feats, level, other } from '$lib';
+	import {
+		runeCount,
+		legendaryCount,
+		BottomNavLink,
+		BoneDrawerNav,
+		feats,
+		level,
+		other
+	} from '$lib';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 

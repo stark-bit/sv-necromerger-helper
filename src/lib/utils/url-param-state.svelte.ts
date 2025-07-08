@@ -6,7 +6,13 @@ export function updateParams({
 	level,
 	feats,
 	other
-}: { runes: string; legendaries: string; level: string; feats: string; other: string }) {
+}: {
+	runes: string;
+	legendaries: string;
+	level: string;
+	feats: string;
+	other: string;
+}) {
 	paramState.value = new URLSearchParams({ runes, legendaries, level, feats, other }).toString();
 }
 

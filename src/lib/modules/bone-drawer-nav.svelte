@@ -67,8 +67,8 @@
 		border-image-width: 40px;
 		border-image-outset: 13px 0px;
 		background: none;
-    &:active {
-      opacity: .8;
-    }
+		&:active {
+			opacity: 0.8;
+		}
 	}
 </style>

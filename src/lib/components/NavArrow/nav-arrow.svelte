@@ -5,7 +5,7 @@
 	let {
 		dir = 'right',
 		class: className,
-		onclick,
+		onclick
 	}: {
 		onclick?: () => void;
 		dir?: 'left' | 'right';

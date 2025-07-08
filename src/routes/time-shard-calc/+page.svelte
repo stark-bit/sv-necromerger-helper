@@ -25,19 +25,19 @@
 	<div class="flex flex-col">
 		<div class="input">
 			<Label class="mb-4 text-lg" for="devourer-level">Devourer: {level.value}</Label>
-      <div class="flex gap-4">
-			<NavArrow onclick={() => (level.value -= 1)} dir="left" />
-			<Slider
-				id="devourer-level"
-				class=""
-				type="single"
-				bind:value={level.value}
-				min={35}
-				max={500}
-				step={1}
-			/>
-			<NavArrow onclick={() => (level.value += 1)} dir="right" />
-        </div>
+			<div class="flex gap-4">
+				<NavArrow onclick={() => (level.value -= 1)} dir="left" />
+				<Slider
+					id="devourer-level"
+					class=""
+					type="single"
+					bind:value={level.value}
+					min={35}
+					max={500}
+					step={1}
+				/>
+				<NavArrow onclick={() => (level.value += 1)} dir="right" />
+			</div>
 		</div>
 		<div class="input">
 			<Label class="mb-4 text-lg" for="feats">Feats: {feats.value}</Label>
