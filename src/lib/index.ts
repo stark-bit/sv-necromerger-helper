@@ -28,4 +28,3 @@ export {
 	dec,
 	handleRuneCount
 } from '$lib/hooks/legendary-cost.svelte';
-export { feats, level, other, shards } from '$lib/hooks/time-shard-calculation.svelte';

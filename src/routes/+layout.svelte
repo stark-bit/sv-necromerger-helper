@@ -5,9 +5,6 @@
 		legendaryCount,
 		BottomNavLink,
 		BoneDrawerNav,
-		feats,
-		level,
-		other
 	} from '$lib';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
@@ -21,6 +18,7 @@
 		updateParams
 	} from '$lib/utils/url-param-state.svelte';
 	import { page } from '$app/state';
+	import { feats, level, other } from '$lib/hooks/time-shard-calculation.svelte';
 	onMount(() => {
 		const params = page.url.searchParams;
 		deSerialize(params.get('runes'), runeCount);

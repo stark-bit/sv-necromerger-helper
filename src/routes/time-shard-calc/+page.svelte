@@ -6,12 +6,11 @@
 		BonePanel,
 		Label,
 		Slider,
-		feats,
-		level,
-		other,
-		shards,
 		NavArrow
 	} from '$lib';
+	import { feats, level, other, shards } from '$lib/hooks/time-shard-calculation.svelte';
+
+	let showPostRocket = $state(false);
 
 	let showPostRocket = $state(false);
 
