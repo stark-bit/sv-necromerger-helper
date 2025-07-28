@@ -15,7 +15,7 @@
 		goto(`${page}?${searchParams}`);
 	};
 
-	let isFirstLoad = true;
+	let isFirstLoad = $state(true);
 	$effect(() => {
 		if (isFirstLoad) {
 			isFirstLoad = false;
