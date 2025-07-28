@@ -13,6 +13,8 @@
 		NavArrow
 	} from '$lib';
 
+	let showPostRocket = $state(false);
+
 	function formatNumber(number: number) {
 		return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 10 }).format(
 			Math.floor(number)
@@ -26,7 +28,14 @@
 >
 	<div class="flex flex-col">
 		<div class="input">
-			<Label class="mb-4 text-lg" for="devourer-level">Devourer: {level.value}</Label>
+			<Label class="relative mb-4 text-lg w-fit" for="devourer-level"
+				>Devourer: {level.value}
+				<button
+					style="opacity: {showPostRocket ? 1 : 0.3}"
+					onclick={() => (showPostRocket = !showPostRocket)}
+					class="absolute top-0 -right-10 text-2xl">🚀</button
+				>
+			</Label>
 			<div class="flex gap-4">
 				<NavArrow onclick={() => (level.value -= 1)} dir="left" />
 				<Slider
@@ -35,7 +44,7 @@
 					type="single"
 					bind:value={level.value}
 					min={35}
-					max={500}
+					max={showPostRocket ? 500 : 100}
 					step={1}
 				/>
 				<NavArrow onclick={() => (level.value += 1)} dir="right" />
