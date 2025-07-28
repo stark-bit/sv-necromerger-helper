@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as Drawer from '$lib/components/ui/Drawer';
-	import { borderImage, close, header } from '$lib/assets';
+	import { borderImage, close, feat_scroll, header, iceRune0, timeShard } from '$lib/assets';
 	import { goto } from '$app/navigation';
 	import { feats } from '$lib/hooks/time-shard-calculation.svelte';
 	import { page } from '$app/state';
@@ -26,22 +26,37 @@
 				onclick={() => {
 					handleSelection('/rune-calc');
 				}}
-				class="bp">Rune calculator</button
+				class="bp"
 			>
+				<span class="relative">
+					<img alt="feat reward" class="absolute -top-1 -left-8" src={iceRune0} />
+					Rune calculator</span
+				>
+			</button>
 			<button
 				style="border-image-source: url({header})"
 				onclick={() => {
 					let currentFeat = feats.value;
 					handleSelection(`/feats/${currentFeat}`);
 				}}
-				class="bp">Feats</button
+				class="bp"
 			>
+				<span class="relative">
+					<img alt="feat reward" class="absolute -top-1 -left-8 h-6" src={feat_scroll} />
+					Feats</span
+				>
+			</button>
 			<button
 				style="border-image-source: url({header})"
 				onclick={() => {
 					handleSelection('/time-shard-calc');
 				}}
-				class="bp">Time shard calc</button
+				class="bp"
+			>
+				<span class="relative">
+					<img alt="feat reward" class="absolute -top-1 -left-8" src={timeShard} />
+					Time shard calc</span
+				></button
 			>
 		</div>
 		<Drawer.Close
