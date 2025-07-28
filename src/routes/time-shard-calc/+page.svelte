@@ -12,8 +12,6 @@
 
 	let showPostRocket = $state(false);
 
-	let showPostRocket = $state(false);
-
 	function formatNumber(number: number) {
 		return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 10 }).format(
 			Math.floor(number)
