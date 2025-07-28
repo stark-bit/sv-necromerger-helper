@@ -25,7 +25,12 @@
 	});
 
 	let pageNum: number = $derived(Number(getLastSegment(page.url)));
-	let searchParams = $state(page.url.searchParams.toString());
+
+	let searchParams = $state();
+
+	onMount(() => {
+		searchParams = page.url.searchParams.toString();
+	});
 
 	function prev() {
 		goto(`${pageNum > 1 ? pageNum - 1 : pageNum}${page.url.search}`);
