@@ -15,12 +15,17 @@
 		goto(`${page}?${searchParams}`);
 	};
 
+	let isFirstLoad = true;
 	$effect(() => {
+		if (isFirstLoad) {
+			isFirstLoad = false;
+			return;
+		}
 		handleSliderPageChange(pageNum);
 	});
 
 	let pageNum: number = $derived(Number(getLastSegment(page.url)));
-  let searchParams = $state(page.url.searchParams.toString());
+	let searchParams = $state(page.url.searchParams.toString());
 
 	function prev() {
 		goto(`${pageNum > 1 ? pageNum - 1 : pageNum}${page.url.search}`);

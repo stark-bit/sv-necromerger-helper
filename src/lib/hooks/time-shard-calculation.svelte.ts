@@ -97,30 +97,54 @@ function calcLevelShards(l: number) {
 	return currentLevelMap[eligibleLevel];
 }
 
-export const currentLevelMap: Record<number, number> = {
+
+export const baseLevelMap: Record<number, number> = {
 	35: 150,
+  // 25
 	40: 275,
+  // 45
 	45: 500,
+  // 50
 	50: 750,
+  // 50
 	55: 1_000,
+  // 100
 	60: 1_500,
+  // 100
 	65: 2_000,
+  // 250
 	70: 3_250,
+  // 250
 	75: 4_500,
+  //  250
 	80: 5_750,
+  // 350
 	85: 7_500,
+  // 500
 	90: 10_000,
+  // 500
 	95: 12_500,
+  // 500
 	100: 15_000,
+  // 5_000
 	150: 40_000,
+  // 5_000
 	200: 65_000,
+  // 17_000
 	300: 150_000,
+  // 25_000
 	400: 275_000,
+  // 35_000
 	500: 450_000,
+  // 50_000
 	600: 700_000,
+  // 70_000
 	700: 1_050_000,
+  // 100_000
 	800: 1_550_000,
+  // 140_000
 	900: 2_250_000,
+  // 200_000
 	1000: 3_250_000
 };
 
@@ -141,3 +165,55 @@ const maxLevelMap = {
 	900: 300_000_000,
 	1000: 500_000_000
 };
+
+
+
+
+
+let ranges = [
+  { start: 35, end: 40, increment: 25 },
+  { start: 40, end: 45, increment: 45 },
+  { start: 45, end: 50, increment: 50 },
+  { start: 50, end: 55, increment: 50 },
+  { start: 55, end: 60, increment: 100 },
+  { start: 60, end: 65, increment: 100 },
+  { start: 65, end: 70, increment: 250 },
+  { start: 70, end: 75, increment: 250 },
+  { start: 75, end: 80, increment: 250 },
+  { start: 80, end: 85, increment: 350 },
+  { start: 85, end: 90, increment: 500 },
+  { start: 90, end: 95, increment: 500 },
+  { start: 95, end: 100, increment: 500 },
+  { start: 100, end: 150, increment: 5_000 },
+  { start: 150, end: 200, increment: 5_000 },
+  { start: 200, end: 300, increment: 17_000 },
+  { start: 300, end: 400, increment: 25_000 },
+  { start: 400, end: 500, increment: 35_000 },
+  { start: 500, end: 600, increment: 50_000 },
+  { start: 600, end: 700, increment: 70_000 },
+  { start: 700, end: 800, increment: 100_000 },
+  { start: 800, end: 900, increment: 140_000 },
+  { start: 900, end: 1_000, increment: 200_000 },
+];
+
+
+export function generateLevelMap(): Record<number, number> {
+  const levelMap: Record<number, number> = { ...baseLevelMap };
+
+  for (const range of ranges) {
+    const { start, end, increment } = range;
+    let currentValue = levelMap[start];
+
+    // Generate intermediate levels between start and end
+    for (let level = start + 1; level < end; level++) {
+      currentValue += increment;
+      levelMap[level] = currentValue;
+    }
+  }
+
+  return levelMap;
+}
+
+const currentLevelMap:Record<number,number> = generateLevelMap();
+
+export { currentLevelMap };

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 	import {
 		LegendaryModal,
 		BonePanel,
@@ -40,7 +42,12 @@
 			</div>
 		</div>
 		<div class="input">
-			<Label class="mb-4 text-lg" for="feats">Feats: {feats.value}</Label>
+			<button onclick={() => goto(`/feats/${feats.value}${page.url.search}`)}>
+				<Label class="mb-4 text-lg" for="feats">
+					Feats:
+					{feats.value}</Label
+				>
+			</button>
 			<div class="flex gap-4">
 				<NavArrow onclick={() => (feats.value -= 1)} dir="left" />
 				<Slider
