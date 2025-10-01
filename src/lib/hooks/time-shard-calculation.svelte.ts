@@ -1,4 +1,4 @@
-import { legendaryCount } from '$lib';
+import { legendaryCount } from '$lib/hooks/legendary-shards.svelte';
 
 export const shards = $state({ level: 0, feats: 15, legendary: 0, other: 100, total: 0 });
 

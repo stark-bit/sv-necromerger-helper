@@ -6,6 +6,7 @@
 		BottomNavLink,
 		BoneDrawerNav,
 	} from '$lib';
+  import {legendaryCount as legendaryCountShards } from '$lib/hooks/legendary-shards.svelte'
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
@@ -23,6 +24,7 @@
 		const params = page.url.searchParams;
 		deSerialize(params.get('runes'), runeCount);
 		deSerialize(params.get('legendaries'), legendaryCount);
+		deSerialize(params.get('legendariesShards'), legendaryCountShards);
 		deSerialize(params.get('level'), level);
 		deSerialize(params.get('feats'), feats);
 		deSerialize(params.get('other'), other);
@@ -32,6 +34,7 @@
 		updateParams({
 			runes: serialize(runeCount),
 			legendaries: serialize(legendaryCount),
+			legendariesShards: serialize(legendaryCountShards),
 			level: serialize(level),
 			feats: serialize(feats),
 			other: serialize(other)

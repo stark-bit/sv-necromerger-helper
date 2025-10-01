@@ -1,8 +1,12 @@
 <script lang="ts">
-	import { NavArrow, dec, inc, legendaryCount } from '$lib';
+	import * as shards from '$lib/hooks/legendary-shards.svelte';
+	import * as cost from '$lib/hooks/legendary-cost.svelte';
 	import { legendMap, type Legend } from '$lib/assets';
+	import { NavArrow } from '$lib';
+	let { legend, timeMachine = false }: { legend: Legend; timeMachine?: boolean } = $props();
 
-	let { legend }: { legend: Legend } = $props();
+	const store = timeMachine ? shards : cost;
+	const { dec, inc, legendaryCount } = store;
 </script>
 
 <div class="w-fit text-center">
