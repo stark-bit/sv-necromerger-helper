@@ -10,12 +10,21 @@ export function updateParams({
 }: {
   runes: string;
   legendaries: string;
-  legendariesShards: string;
+  legendariesShards?: string;
   level: string;
   feats: string;
   other: string;
 }) {
-  paramState.value = new URLSearchParams({ runes, legendaries, legendariesShards, level, feats, other }).toString();
+  const params = new URLSearchParams();
+  params.set('runes', runes);
+  params.set('legendaries', legendaries);
+  if (legendariesShards) {
+    params.set('legendariesShards', legendariesShards);
+  }
+  params.set('level', level);
+  params.set('feats', feats);
+  params.set('other', other);
+  paramState.value = params.toString();
 }
 
 export function serialize(obj: Record<string, number>, separator = '-') {

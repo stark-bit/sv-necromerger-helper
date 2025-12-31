@@ -2,8 +2,8 @@ import { legendaryCount } from '$lib/hooks/legendary-shards.svelte';
 
 export const shards = $state({ level: 0, feats: 15, legendary: 0, other: 100, total: 0 });
 
-export const level = $state({ value: 35 });
-export const feats = $state({ value: 15 });
+export const level = $state({ value: 60 });
+export const feats = $state({ value: 18 });
 export const other = $state({ value: 100 });
 
 $effect.root(() => {
@@ -51,9 +51,9 @@ function calcLegendary(legs: typeof legendaryCount) {
 	const t4Bonus = rc >= 1 && sb >= 1 && st >= 1;
 
 	// T1: Lich, Gorgon, Harpy
-	bonus += li >= 0 ? 10 + (li - 1) * 5 : 0;
-	bonus += go >= 0 ? 10 + (go - 1) * 5 : 0;
-	bonus += ha >= 0 ? 10 + (ha - 1) * 5 : 0;
+	bonus += li > 0 ? 10 + (li - 1) * 5 : 0;
+	bonus += go > 0 ? 10 + (go - 1) * 5 : 0;
+	bonus += ha > 0 ? 10 + (ha - 1) * 5 : 0;
 	// T2: Reaper, Cyclops, Archdemon
 	bonus += re > 0 ? 20 + (re - 1) * 10 : 0;
 	bonus += cy > 0 ? 20 + (cy - 1) * 10 : 0;

@@ -3,8 +3,6 @@
 	import {
 		runeCount,
 		legendaryCount,
-		BottomNavLink,
-		BoneDrawerNav,
 	} from '$lib';
   import {legendaryCount as legendaryCountShards } from '$lib/hooks/legendary-shards.svelte'
 	import { onMount } from 'svelte';
@@ -31,10 +29,12 @@
 	});
 
 	$effect(() => {
+		const legendaryShardsSerialized = serialize(legendaryCountShards);
+		const hasLegendaryShards = Object.values(legendaryCountShards).some((value) => value !== 0);
 		updateParams({
 			runes: serialize(runeCount),
 			legendaries: serialize(legendaryCount),
-			legendariesShards: serialize(legendaryCountShards),
+			legendariesShards: hasLegendaryShards ? legendaryShardsSerialized : undefined,
 			level: serialize(level),
 			feats: serialize(feats),
 			other: serialize(other)
@@ -51,12 +51,6 @@
 	{@render children()}
 </div>
 
-{#snippet trigger()}
-	<BottomNavLink text="Nav" class="size-15 w-20" />
-{/snippet}
-<div class="fixed right-0 bottom-0">
-	<BoneDrawerNav {trigger} />
-</div>
 
 <style>
 	:global(html, body) {

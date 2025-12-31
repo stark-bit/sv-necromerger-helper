@@ -5,9 +5,9 @@
 
 	if (page.error) {
 		onMount(() => {
-			goto('/rune-calc');
+			goto('/');
 		});
 	}
 </script>
 
-helo
+Nein!

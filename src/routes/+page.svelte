@@ -13,11 +13,26 @@
 	let showPostRocket = $state(false);
 
 	function formatNumber(number: number) {
-		return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 10 }).format(
+		return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 10 }).format(
 			Math.floor(number)
 		);
 	}
 </script>
+
+<!--
+
+
+
+
+
+
+
+
+
+
+
+
+-->
 
 <BonePanel
 	class="relative m-auto mt-10 w-full max-w-[400px] px-4 pb-10"
