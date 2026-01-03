@@ -42,7 +42,7 @@
 
 		// without checking for error, will cause infinite rerender loop on 404 pages
 		if (!page.error) {
-			goto(`?${paramState.value}`);
+			goto(`?${paramState.value}`, { replaceState: true });
 		}
 	});
 </script>
