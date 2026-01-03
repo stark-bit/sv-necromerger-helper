@@ -1,13 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import {
-		LegendaryModal,
-		BonePanel,
-		Label,
-		Slider,
-		NavArrow
-	} from '$lib';
+	import { LegendaryModal, BonePanel, Label, Slider, NavArrow } from '$lib';
 	import { feats, level, other, shards } from '$lib/hooks/time-shard-calculation.svelte';
 
 	let showPostRocket = $state(false);
@@ -40,7 +34,7 @@
 >
 	<div class="flex flex-col">
 		<div class="input">
-			<Label class="relative mb-4 text-lg w-fit" for="devourer-level"
+			<Label class="relative mb-4 w-fit text-lg" for="devourer-level"
 				>Devourer: {level.value}
 				<button
 					style="opacity: {showPostRocket ? 1 : 0.3}"

@@ -11,6 +11,7 @@
 	import * as Dialog from '$lib/components/ui/Dialog';
 	import { Button } from 'bits-ui';
 	import { resetButton } from '$lib/assets';
+	import { Checkbox } from '$lib/components/checkbox';
 
 	function formatNumber(number: number) {
 		return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 10 }).format(
@@ -22,6 +23,8 @@
 		Object.values(shardLegendaryCount).some((value) => value > 0)
 	);
 	const totalShards = $derived(formatNumber(shards.total));
+
+	let enableOwned = $state(false);
 </script>
 
 <!--
@@ -60,29 +63,36 @@
 				<div class="relative flex justify-center gap-[8px]">
 					{#if hasLegendaryShards}
 						<button
-							class="absolute -top-2 -left-2 size-10 opacity-70 focus:opacity-100"
+							class="absolute -top-4 -left-4 size-8 opacity-70 focus:opacity-100"
 							onclick={resetLegendaryShards}
 						>
 							<img alt="reset-button" src={resetButton} />
 						</button>
 					{/if}
-					{#each runeNames as rune (rune)}
-						<RuneScore rune={runeMap[rune]} label={rune} count={shardRuneCount} />
-					{/each}
+					<div class="flex flex-col">
+						<div class="flex justify-end relative gap-5">
+							{#each runeNames as rune (rune)}
+								<RuneScore rune={runeMap[rune]} label={rune} count={shardRuneCount} />
+							{/each}
+						</div>
+						<div class="right-0 flex gap-4">
+							<Checkbox bind:checked={enableOwned} /> Show Owned
+						</div>
+					</div>
 				</div>
 				<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
-					<Legendary timeMachine legend="lich" />
-					<Legendary timeMachine legend="gorgon" />
-					<Legendary timeMachine legend="harpy" />
-					<Legendary timeMachine legend="reaper" />
-					<Legendary timeMachine legend="cyclops" />
-					<Legendary timeMachine legend="archdemon" />
-					<Legendary timeMachine legend="cursed" />
-					<Legendary timeMachine legend="colossus" />
-					<Legendary timeMachine legend="infernal" />
-					<Legendary timeMachine legend="robot chicken" />
-					<Legendary timeMachine legend="shield bot" />
-					<Legendary timeMachine legend="stalker" />
+					<Legendary {enableOwned} legend="lich" />
+					<Legendary {enableOwned} legend="gorgon" />
+					<Legendary {enableOwned} legend="harpy" />
+					<Legendary {enableOwned} legend="reaper" />
+					<Legendary {enableOwned} legend="cyclops" />
+					<Legendary {enableOwned} legend="archdemon" />
+					<Legendary {enableOwned} legend="cursed" />
+					<Legendary {enableOwned} legend="colossus" />
+					<Legendary {enableOwned} legend="infernal" />
+					<Legendary {enableOwned} legend="robot chicken" />
+					<Legendary {enableOwned} legend="shield bot" />
+					<Legendary {enableOwned} legend="stalker" />
 				</div>
 			</Dialog.Description>
 		</Dialog.Header>
