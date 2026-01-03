@@ -7,8 +7,8 @@
 		resetLegendaryShards
 	} from '$lib/hooks/legendary-shards.svelte';
 	import { shards } from '$lib/hooks/time-shard-calculation.svelte';
-	import { borderImage } from '$lib/assets';
-	import * as Dialog from '$lib/components/ui/Dialog';
+	import { borderImage, close } from '$lib/assets';
+	import * as Drawer from '$lib/components/ui/Drawer';
 	import { Button } from 'bits-ui';
 	import { resetButton } from '$lib/assets';
 	import { Checkbox } from '$lib/components/checkbox';
@@ -42,8 +42,8 @@
 
 -->
 
-<Dialog.Root>
-	<Dialog.Trigger>
+<Drawer.Root>
+	<Drawer.Trigger>
 		<Button.Root
 			style="border-image-source: url({borderImage})"
 			class="legendary-button rounded-input inline-flex h-12 items-center justify-center
@@ -52,10 +52,12 @@
 		>
 			Legendaries
 		</Button.Root>
-	</Dialog.Trigger>
-	<Dialog.Content>
-		<Dialog.Header>
-			<Dialog.Description>
+	</Drawer.Trigger>
+	<Drawer.Content
+		style="border-image-source: url({borderImage})"
+		class="legendary-drawer m-auto max-w-[560px]"
+	>
+		<div class="p-6 pt-10">
 				<div class="absolute -top-1 left-1/2 -translate-x-1/2 text-center text-lg text-nowrap">
 					Total shards: {totalShards} -
 					{shards.legendary}%
@@ -70,7 +72,7 @@
 						</button>
 					{/if}
 					<div class="flex flex-col">
-						<div class="flex justify-end relative gap-5">
+						<div class="relative flex justify-end gap-5">
 							{#each runeNames as rune (rune)}
 								<RuneScore rune={runeMap[rune]} label={rune} count={shardRuneCount} />
 							{/each}
@@ -94,14 +96,24 @@
 					<Legendary {enableOwned} legend="shield bot" />
 					<Legendary {enableOwned} legend="stalker" />
 				</div>
-			</Dialog.Description>
-		</Dialog.Header>
-	</Dialog.Content>
-</Dialog.Root>
+		</div>
+		<Drawer.Close
+			style="background-image: url({close})"
+			class="absolute top-2 right-4 size-10 bg-cover hover:opacity-50"
+		/>
+	</Drawer.Content>
+</Drawer.Root>
 
 <style>
 	:global(.legendary-button) {
 		border-image-slice: 20 fill;
 		border-image-width: 50px;
+	}
+
+	:global(.legendary-drawer) {
+		border-image-slice: 20 fill;
+		border-image-width: 40px 50px;
+		border-image-outset: 20px 10px;
+		background: none;
 	}
 </style>
