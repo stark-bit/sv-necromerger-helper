@@ -55,17 +55,17 @@
 	</Drawer.Trigger>
 	<Drawer.Content
 		style="border-image-source: url({borderImage})"
-		class="legendary-drawer m-auto max-w-[560px]"
+		class="legendary-drawer m-auto max-w-[560px] h-full"
 	>
-		<div class="p-6 pt-10">
-				<div class="absolute -top-1 left-1/2 -translate-x-1/2 text-center text-lg text-nowrap">
+		<div class="p-6 pt-10 overflow-scroll">
+				<div class="absolute top-1 left-1/2 -translate-x-1/2 text-center text-lg text-nowrap">
 					Total shards: {totalShards} -
 					{shards.legendary}%
 				</div>
 				<div class="relative flex justify-center gap-[8px]">
 					{#if hasLegendaryShards}
 						<button
-							class="absolute -top-4 -left-4 size-8 opacity-70 focus:opacity-100"
+							class="fixed top-2 left-4 size-8 opacity-70 focus:opacity-100"
 							onclick={resetLegendaryShards}
 						>
 							<img alt="reset-button" src={resetButton} />
