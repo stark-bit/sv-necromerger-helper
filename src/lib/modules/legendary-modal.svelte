@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { runeMap, runes as runeNames } from '$lib/assets';
 	import { Legendary, RuneScore } from '$lib';
+	import { resetCount as resetCostCount } from '$lib/hooks/legendary-cost.svelte';
 	import {
 		runeCount as shardRuneCount,
 		legendaryCount as shardLegendaryCount,
-		resetLegendaryShards
+		resetCount
 	} from '$lib/hooks/legendary-shards.svelte';
 	import { shards } from '$lib/hooks/time-shard-calculation.svelte';
 	import { borderImage, close } from '$lib/assets';
@@ -55,47 +56,50 @@
 	</Drawer.Trigger>
 	<Drawer.Content
 		style="border-image-source: url({borderImage})"
-		class="legendary-drawer m-auto max-w-[560px] h-full"
+		class="legendary-drawer m-auto h-full max-w-[560px]"
 	>
-		<div class="p-6 pt-10 overflow-scroll">
-				<div class="absolute top-1 left-1/2 -translate-x-1/2 text-center text-lg text-nowrap">
-					Total shards: {totalShards} -
-					{shards.legendary}%
-				</div>
-				<div class="relative flex justify-center gap-[8px]">
-					{#if hasLegendaryShards}
-						<button
-							class="fixed top-2 left-4 size-8 opacity-70 focus:opacity-100"
-							onclick={resetLegendaryShards}
-						>
-							<img alt="reset-button" src={resetButton} />
-						</button>
-					{/if}
-					<div class="flex flex-col">
-						<div class="relative flex justify-end gap-5">
-							{#each runeNames as rune (rune)}
-								<RuneScore rune={runeMap[rune]} label={rune} count={shardRuneCount} />
-							{/each}
-						</div>
-						<div class="right-0 flex gap-4">
-							<Checkbox bind:checked={enableOwned} /> Show Owned
-						</div>
+		<div class="overflow-scroll p-6 pt-4">
+			<div class="absolute top-1 left-1/2 -translate-x-1/2 text-center text-lg text-nowrap">
+				Total shards: {totalShards} -
+				{shards.legendary}%
+			</div>
+			<div class="absolute top-6 left-1/2 flex -translate-x-1/2 items-center gap-4">
+				<Checkbox bind:checked={enableOwned} />{enableOwned ? 'Current' : 'Needed'}
+			</div>
+			<div class="relative flex justify-center gap-[8px]">
+				{#if hasLegendaryShards}
+					<button
+						class="fixed top-2 left-4 size-8 opacity-70 focus:opacity-100"
+						onclick={() => {
+							resetCount();
+							resetCostCount();
+						}}
+					>
+						<img alt="reset-button" src={resetButton} />
+					</button>
+				{/if}
+				<div class="flex flex-col">
+					<div class="relative flex justify-end gap-5">
+						{#each runeNames as rune (rune)}
+							<RuneScore rune={runeMap[rune]} label={rune} count={shardRuneCount} />
+						{/each}
 					</div>
 				</div>
-				<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
-					<Legendary {enableOwned} legend="lich" />
-					<Legendary {enableOwned} legend="gorgon" />
-					<Legendary {enableOwned} legend="harpy" />
-					<Legendary {enableOwned} legend="reaper" />
-					<Legendary {enableOwned} legend="cyclops" />
-					<Legendary {enableOwned} legend="archdemon" />
-					<Legendary {enableOwned} legend="cursed" />
-					<Legendary {enableOwned} legend="colossus" />
-					<Legendary {enableOwned} legend="infernal" />
-					<Legendary {enableOwned} legend="robot chicken" />
-					<Legendary {enableOwned} legend="shield bot" />
-					<Legendary {enableOwned} legend="stalker" />
-				</div>
+			</div>
+			<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
+				<Legendary {enableOwned} legend="lich" />
+				<Legendary {enableOwned} legend="gorgon" />
+				<Legendary {enableOwned} legend="harpy" />
+				<Legendary {enableOwned} legend="reaper" />
+				<Legendary {enableOwned} legend="cyclops" />
+				<Legendary {enableOwned} legend="archdemon" />
+				<Legendary {enableOwned} legend="cursed" />
+				<Legendary {enableOwned} legend="colossus" />
+				<Legendary {enableOwned} legend="infernal" />
+				<Legendary {enableOwned} legend="robot chicken" />
+				<Legendary {enableOwned} legend="shield bot" />
+				<Legendary {enableOwned} legend="stalker" />
+			</div>
 		</div>
 		<Drawer.Close
 			style="background-image: url({close})"
