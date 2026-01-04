@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { runeMap, runes as runeNames } from '$lib/assets';
 	import { Legendary, RuneScore } from '$lib';
-	import { resetCount as resetCostCount } from '$lib/hooks/legendary-cost.svelte';
+	import { resetOwnedCounts } from '$lib/hooks/legendary-cost.svelte';
 	import {
-		runeCount as shardRuneCount,
-		legendaryCount as shardLegendaryCount,
-		resetCount
+		neededRuneCount,
+		neededLegendaryCount,
+		resetNeededCounts
 	} from '$lib/hooks/legendary-shards.svelte';
 	import { shards } from '$lib/hooks/time-shard-calculation.svelte';
 	import { borderImage, close } from '$lib/assets';
@@ -21,11 +21,11 @@
 	}
 
 	const hasLegendaryShards = $derived(
-		Object.values(shardLegendaryCount).some((value) => value > 0)
+		Object.values(neededLegendaryCount).some((value) => value > 0)
 	);
 	const totalShards = $derived(formatNumber(shards.total));
 
-	let enableOwned = $state(false);
+	let showOwnedCounts = $state(false);
 </script>
 
 <!--
@@ -64,15 +64,15 @@
 				{shards.legendary}%
 			</div>
 			<div class="absolute top-6 left-1/2 flex -translate-x-1/2 items-center gap-4">
-				<Checkbox bind:checked={enableOwned} />{enableOwned ? 'Current' : 'Needed'}
+				<Checkbox bind:checked={showOwnedCounts} />{showOwnedCounts ? 'Current' : 'Needed'}
 			</div>
 			<div class="relative flex justify-center gap-[8px]">
 				{#if hasLegendaryShards}
 					<button
 						class="fixed top-2 left-4 size-8 opacity-70 focus:opacity-100"
 						onclick={() => {
-							resetCount();
-							resetCostCount();
+							resetNeededCounts();
+							resetOwnedCounts();
 						}}
 					>
 						<img alt="reset-button" src={resetButton} />
@@ -81,24 +81,24 @@
 				<div class="flex flex-col">
 					<div class="relative flex justify-end gap-5">
 						{#each runeNames as rune (rune)}
-							<RuneScore rune={runeMap[rune]} label={rune} count={shardRuneCount} />
+							<RuneScore rune={runeMap[rune]} label={rune} count={neededRuneCount} />
 						{/each}
 					</div>
 				</div>
 			</div>
 			<div class="m-auto grid max-w-[400px] grid-cols-3 place-items-center gap-4">
-				<Legendary {enableOwned} legend="lich" />
-				<Legendary {enableOwned} legend="gorgon" />
-				<Legendary {enableOwned} legend="harpy" />
-				<Legendary {enableOwned} legend="reaper" />
-				<Legendary {enableOwned} legend="cyclops" />
-				<Legendary {enableOwned} legend="archdemon" />
-				<Legendary {enableOwned} legend="cursed" />
-				<Legendary {enableOwned} legend="colossus" />
-				<Legendary {enableOwned} legend="infernal" />
-				<Legendary {enableOwned} legend="robot chicken" />
-				<Legendary {enableOwned} legend="shield bot" />
-				<Legendary {enableOwned} legend="stalker" />
+				<Legendary {showOwnedCounts} name="lich" />
+				<Legendary {showOwnedCounts} name="gorgon" />
+				<Legendary {showOwnedCounts} name="harpy" />
+				<Legendary {showOwnedCounts} name="reaper" />
+				<Legendary {showOwnedCounts} name="cyclops" />
+				<Legendary {showOwnedCounts} name="archdemon" />
+				<Legendary {showOwnedCounts} name="cursed" />
+				<Legendary {showOwnedCounts} name="colossus" />
+				<Legendary {showOwnedCounts} name="infernal" />
+				<Legendary {showOwnedCounts} name="robot chicken" />
+				<Legendary {showOwnedCounts} name="shield bot" />
+				<Legendary {showOwnedCounts} name="stalker" />
 			</div>
 		</div>
 		<Drawer.Close

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import '../app.css';
 	import {
-		runeCount,
-		legendaryCount,
+		ownedRuneCount,
+		ownedLegendaryCount
 	} from '$lib';
-  import {legendaryCount as legendaryCountShards } from '$lib/hooks/legendary-shards.svelte'
+	import { neededLegendaryCount } from '$lib/hooks/legendary-shards.svelte';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
@@ -20,20 +20,20 @@
 	import { feats, level, other } from '$lib/hooks/time-shard-calculation.svelte';
 	onMount(() => {
 		const params = page.url.searchParams;
-		deSerialize(params.get('runes'), runeCount);
-		deSerialize(params.get('legendaries'), legendaryCount);
-		deSerialize(params.get('legendariesShards'), legendaryCountShards);
+		deSerialize(params.get('runes'), ownedRuneCount);
+		deSerialize(params.get('legendaries'), ownedLegendaryCount);
+		deSerialize(params.get('legendariesShards'), neededLegendaryCount);
 		deSerialize(params.get('level'), level);
 		deSerialize(params.get('feats'), feats);
 		deSerialize(params.get('other'), other);
 	});
 
 	$effect(() => {
-		const legendaryShardsSerialized = serialize(legendaryCountShards);
-		const hasLegendaryShards = Object.values(legendaryCountShards).some((value) => value !== 0);
+		const legendaryShardsSerialized = serialize(neededLegendaryCount);
+		const hasLegendaryShards = Object.values(neededLegendaryCount).some((value) => value !== 0);
 		updateParams({
-			runes: serialize(runeCount),
-			legendaries: serialize(legendaryCount),
+			runes: serialize(ownedRuneCount),
+			legendaries: serialize(ownedLegendaryCount),
 			legendariesShards: hasLegendaryShards ? legendaryShardsSerialized : undefined,
 			level: serialize(level),
 			feats: serialize(feats),

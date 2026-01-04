@@ -1,4 +1,4 @@
-import { legendaryCount } from '$lib/hooks/legendary-shards.svelte';
+import { neededLegendaryCount } from '$lib/hooks/legendary-shards.svelte';
 
 export const shards = $state({ level: 0, feats: 15, legendary: 0, other: 100, total: 0 });
 
@@ -10,7 +10,7 @@ $effect.root(() => {
 	$effect(() => {
 		shards.level = calcLevelShards(level.value);
 		shards.feats = calcFeats();
-		shards.legendary = calcLegendary(legendaryCount);
+		shards.legendary = calcLegendary(neededLegendaryCount);
 		shards.other = other.value;
 		shards.total = calcTotal();
 	});
@@ -24,7 +24,7 @@ function calcFeats() {
 	return 100 + 10 * feats.value;
 }
 
-function calcLegendary(legs: typeof legendaryCount) {
+function calcLegendary(legs: typeof neededLegendaryCount) {
 	// T1
 	const li = legs.lich;
 	const go = legs.gorgon;

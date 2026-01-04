@@ -1,6 +1,6 @@
 import { type Legend, type Rune } from '$lib/types';
 
-export const runeCount = $state<Record<Rune, number>>({
+export const neededRuneCount = $state<Record<Rune, number>>({
 	ice: 0,
 	poison: 0,
 	blood: 0,
@@ -8,7 +8,7 @@ export const runeCount = $state<Record<Rune, number>>({
 	death: 0,
 	cosmic: 0
 });
-export const legendaryCount = $state<Record<Legend, number>>({
+export const neededLegendaryCount = $state<Record<Legend, number>>({
 	lich: 0,
 	gorgon: 0,
 	harpy: 0,
@@ -23,90 +23,92 @@ export const legendaryCount = $state<Record<Legend, number>>({
 	stalker: 0
 });
 
-export function inc(legend: Legend) {
-	const count = legendaryCount[legend];
+export function incNeededLegendary(legend: Legend) {
+	const count = neededLegendaryCount[legend];
 	if (
 		(legend === 'cursed' || legend === 'colossus' || legend === 'infernal') &&
-		legendaryCount[legend] === 1
+		neededLegendaryCount[legend] === 1
 	) {
 		return null;
 	}
 	if ((legend === 'shield bot' || legend === 'robot chicken') && count === 3) {
 		return null;
 	}
-	legendaryCount[legend] = legendaryCount[legend] + 1;
-	handleRuneCount(legend, 'inc', legendaryCount[legend]);
+	neededLegendaryCount[legend] = neededLegendaryCount[legend] + 1;
+	updateNeededRuneCount(legend, 'inc', neededLegendaryCount[legend]);
 }
 
-export function dec(legend: Legend) {
-	if (legendaryCount[legend] <= 0) {
+export function decNeededLegendary(legend: Legend) {
+	if (neededLegendaryCount[legend] <= 0) {
 		return null;
 	}
-	legendaryCount[legend] =
-		legendaryCount[legend] <= 0 ? legendaryCount[legend] : legendaryCount[legend] - 1;
-	handleRuneCount(legend, 'dec', legendaryCount[legend]);
+	neededLegendaryCount[legend] =
+		neededLegendaryCount[legend] <= 0
+			? neededLegendaryCount[legend]
+			: neededLegendaryCount[legend] - 1;
+	updateNeededRuneCount(legend, 'dec', neededLegendaryCount[legend]);
 }
 
-export function handleRuneCount(legend: Legend, action: 'inc' | 'dec', count: number) {
+export function updateNeededRuneCount(legend: Legend, action: 'inc' | 'dec', count: number) {
 	const isInc = action === 'inc';
 	const isHigh = count === 1;
 	const isLow = count === 0;
 
 	switch (legend?.toLowerCase()) {
 		case 'lich':
-			runeCount.ice += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
+			neededRuneCount.ice += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
 			break;
 
 		case 'gorgon':
-			runeCount.poison += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
+			neededRuneCount.poison += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
 			break;
 
 		case 'harpy':
-			runeCount.blood += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
+			neededRuneCount.blood += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
 			break;
 
 		case 'reaper':
-			runeCount.ice += isInc ? (isHigh ? 1600 : 1550) : isLow ? -1600 : -1550;
-			runeCount.moon += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
+			neededRuneCount.ice += isInc ? (isHigh ? 1600 : 1550) : isLow ? -1600 : -1550;
+			neededRuneCount.moon += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
 			break;
 
 		case 'cyclops':
-			runeCount.poison += isInc ? (isHigh ? 1600 : 1550) : isLow ? -1600 : -1550;
-			runeCount.moon += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
+			neededRuneCount.poison += isInc ? (isHigh ? 1600 : 1550) : isLow ? -1600 : -1550;
+			neededRuneCount.moon += isInc ? (isHigh ? 640 : 620) : isLow ? -640 : -620;
 			break;
 
 		case 'archdemon':
-			runeCount.blood += isInc ? (isHigh ? 960 : 930) : isLow ? -960 : -930;
-			runeCount.death += isInc ? (isHigh ? 960 : 930) : isLow ? -960 : -930;
+			neededRuneCount.blood += isInc ? (isHigh ? 960 : 930) : isLow ? -960 : -930;
+			neededRuneCount.death += isInc ? (isHigh ? 960 : 930) : isLow ? -960 : -930;
 			break;
 
 		case 'cursed':
-			runeCount.ice += isInc ? 2240 : -2240;
-			runeCount.moon += isInc ? 640 : -640;
+			neededRuneCount.ice += isInc ? 2240 : -2240;
+			neededRuneCount.moon += isInc ? 640 : -640;
 			break;
 
 		case 'colossus':
-			runeCount.poison += isInc ? 2240 : -2240;
-			runeCount.moon += isInc ? 640 : -640;
+			neededRuneCount.poison += isInc ? 2240 : -2240;
+			neededRuneCount.moon += isInc ? 640 : -640;
 			break;
 
 		case 'infernal':
-			runeCount.blood += isInc ? 1600 : -1600;
-			runeCount.death += isInc ? 960 : -960;
+			neededRuneCount.blood += isInc ? 1600 : -1600;
+			neededRuneCount.death += isInc ? 960 : -960;
 			break;
 
 		case 'robot chicken':
-			runeCount.ice += isInc ? 960 : -960;
-			runeCount.poison += isInc ? 480 : -480;
+			neededRuneCount.ice += isInc ? 960 : -960;
+			neededRuneCount.poison += isInc ? 480 : -480;
 			break;
 
 		case 'shield bot':
-			runeCount.cosmic += isInc ? 640 : -640;
+			neededRuneCount.cosmic += isInc ? 640 : -640;
 			break;
 
 		case 'stalker':
-			runeCount.cosmic += isInc ? 800 : -800;
-			runeCount.death += isInc ? 800 : -800;
+			neededRuneCount.cosmic += isInc ? 800 : -800;
+			neededRuneCount.death += isInc ? 800 : -800;
 			break;
 
 		default:
@@ -114,11 +116,11 @@ export function handleRuneCount(legend: Legend, action: 'inc' | 'dec', count: nu
 	}
 }
 
-export function resetCount() {
-	for (const key of Object.keys(legendaryCount) as Legend[]) {
-		legendaryCount[key] = 0;
+export function resetNeededCounts() {
+	for (const key of Object.keys(neededLegendaryCount) as Legend[]) {
+		neededLegendaryCount[key] = 0;
 	}
-	for (const key of Object.keys(runeCount) as Rune[]) {
-		runeCount[key] = 0;
+	for (const key of Object.keys(neededRuneCount) as Rune[]) {
+		neededRuneCount[key] = 0;
 	}
 }

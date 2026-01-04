@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { runeCount, runeCount as runeCountNeeded } from '$lib/hooks/legendary-shards.svelte';
-	import { runeCount as runeCountOwned } from '$lib/hooks/legendary-cost.svelte';
+	import { neededRuneCount } from '$lib/hooks/legendary-shards.svelte';
+	import { ownedRuneCount } from '$lib/hooks/legendary-cost.svelte';
 	import { type Rune } from '$lib/types';
 
 	let { rune, label } = $props<{
@@ -13,7 +13,7 @@
 <div class="">
 	<img src={rune} class="m-auto block" alt="rune" />
 	<div class="text-center">
-		{runeCountNeeded[label as keyof typeof runeCount] -
-			runeCountOwned[label as keyof typeof runeCount]}
+		{neededRuneCount[label as keyof typeof neededRuneCount] -
+			ownedRuneCount[label as keyof typeof neededRuneCount]}
 	</div>
 </div>

@@ -22,9 +22,9 @@ export * from '$lib/types';
 
 // hooks
 export {
-	runeCount,
-	legendaryCount,
-	inc,
-	dec,
-	handleRuneCount
+	ownedRuneCount,
+	ownedLegendaryCount,
+	incOwnedLegendary,
+	decOwnedLegendary,
+	updateOwnedRuneCount
 } from '$lib/hooks/legendary-cost.svelte';
