@@ -114,7 +114,7 @@ export function handleRuneCount(legend: Legend, action: 'inc' | 'dec', count: nu
 	}
 }
 
-export function resetLegendaryShards() {
+export function resetCount() {
 	for (const key of Object.keys(legendaryCount) as Legend[]) {
 		legendaryCount[key] = 0;
 	}

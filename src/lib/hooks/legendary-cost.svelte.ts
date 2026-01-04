@@ -113,3 +113,12 @@ export function handleRuneCount(legend: Legend, action: 'inc' | 'dec', count: nu
 			throw new Error(`unknown legendary: ${legend}`);
 	}
 }
+
+export function resetCount() {
+	for (const key of Object.keys(legendaryCount) as Legend[]) {
+		legendaryCount[key] = 0;
+	}
+	for (const key of Object.keys(runeCount) as Rune[]) {
+		runeCount[key] = 0;
+	}
+}
