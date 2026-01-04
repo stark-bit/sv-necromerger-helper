@@ -31,7 +31,7 @@ export function incOwnedLegendary(legend: Legend) {
 	) {
 		return null;
 	}
-	if ((legend === 'shield bot' || legend === 'robot chicken') && count === 3) {
+	if ((legend === 'shield bot' || legend === 'robot chicken' || legend === 'archdemon') && count === 4) {
 		return null;
 	}
 	ownedLegendaryCount[legend] = ownedLegendaryCount[legend] + 1;
