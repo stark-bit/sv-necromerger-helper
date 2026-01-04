@@ -23,6 +23,31 @@ export const neededLegendaryCount = $state<Record<Legend, number>>({
   stalker: 0
 });
 
+export type BonusMultiplier = number;
+export type LegendaryGroupMultipliers = {
+  t1Bonus: BonusMultiplier;
+  t2Bonus: BonusMultiplier;
+  t3Bonus: BonusMultiplier;
+  t4Bonus: BonusMultiplier;
+  t5Bonus: BonusMultiplier;
+};
+
+export const neededLegendaryGroupMultipliers = $state<LegendaryGroupMultipliers>({
+  t1Bonus: 1,
+  t2Bonus: 1,
+  t3Bonus: 1,
+  t4Bonus: 1,
+  t5Bonus: 1
+});
+
+export function setBonusMultipliers(multipliers: LegendaryGroupMultipliers) {
+  neededLegendaryGroupMultipliers.t1Bonus = Math.min(multipliers.t1Bonus, 2);
+  neededLegendaryGroupMultipliers.t2Bonus = Math.min(multipliers.t2Bonus, 2);
+  neededLegendaryGroupMultipliers.t3Bonus = Math.min(multipliers.t3Bonus, 2);
+  neededLegendaryGroupMultipliers.t4Bonus = Math.min(multipliers.t4Bonus, 2);
+  neededLegendaryGroupMultipliers.t5Bonus = Math.min(multipliers.t5Bonus, 2);
+}
+
 export function incNeededLegendary(legend: Legend) {
   const count = neededLegendaryCount[legend];
   if (

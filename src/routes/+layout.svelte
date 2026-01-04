@@ -7,6 +7,7 @@
 	} from '$lib';
 	import {
 		neededLegendaryCount,
+		neededLegendaryGroupMultipliers,
 		rebuildNeededRuneCountFromLegendaries
 	} from '$lib/hooks/legendary-shards.svelte';
 	import { onMount } from 'svelte';
@@ -28,9 +29,18 @@
 		const ownedLegendariesParam = params.get('ownedLegendaries') ?? params.get('legendaries');
 		const neededLegendariesParam =
 			params.get('neededLegendaries') ?? params.get('legendariesShards');
+		const legendaryBonusesParam = params.get('legendaryGroupBonuses');
 		deSerialize(ownedRunesParam, ownedRuneCount);
 		deSerialize(ownedLegendariesParam, ownedLegendaryCount);
 		deSerialize(neededLegendariesParam, neededLegendaryCount);
+		deSerialize(legendaryBonusesParam, neededLegendaryGroupMultipliers);
+		for (const key of Object.keys(neededLegendaryGroupMultipliers)) {
+			const current = neededLegendaryGroupMultipliers[
+				key as keyof typeof neededLegendaryGroupMultipliers
+			];
+			neededLegendaryGroupMultipliers[key as keyof typeof neededLegendaryGroupMultipliers] =
+				Math.min(2, Math.max(1, current)) as 1 | 2;
+		}
 		if (ownedLegendariesParam) {
 			rebuildOwnedRuneCountFromLegendaries();
 		}
@@ -45,10 +55,12 @@
 	$effect(() => {
 		const legendaryShardsSerialized = serialize(neededLegendaryCount);
 		const hasLegendaryShards = Object.values(neededLegendaryCount).some((value) => value !== 0);
+		const legendaryBonusesSerialized = serialize(neededLegendaryGroupMultipliers);
 		updateParams({
 			ownedRunes: serialize(ownedRuneCount),
 			ownedLegendaries: serialize(ownedLegendaryCount),
 			neededLegendaries: hasLegendaryShards ? legendaryShardsSerialized : undefined,
+			legendaryGroupBonuses: legendaryBonusesSerialized,
 			level: serialize(level),
 			feats: serialize(feats),
 			other: serialize(other)

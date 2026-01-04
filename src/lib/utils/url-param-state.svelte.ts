@@ -4,6 +4,7 @@ export function updateParams({
   ownedRunes,
   ownedLegendaries,
   neededLegendaries,
+  legendaryGroupBonuses,
   level,
   feats,
   other
@@ -11,6 +12,7 @@ export function updateParams({
   ownedRunes: string;
   ownedLegendaries: string;
   neededLegendaries?: string;
+  legendaryGroupBonuses?: string;
   level: string;
   feats: string;
   other: string;
@@ -20,6 +22,9 @@ export function updateParams({
   params.set('ownedLegendaries', ownedLegendaries);
   if (neededLegendaries) {
     params.set('neededLegendaries', neededLegendaries);
+  }
+  if (legendaryGroupBonuses) {
+    params.set('legendaryGroupBonuses', legendaryGroupBonuses);
   }
   params.set('level', level);
   params.set('feats', feats);

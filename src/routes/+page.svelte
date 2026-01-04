@@ -2,9 +2,36 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { LegendaryModal, BonePanel, Label, Slider, NavArrow } from '$lib';
+	import { Checkbox } from '$lib/components/checkbox';
+	import * as Dialog from '$lib/components/ui/Dialog';
+	import { neededLegendaryGroupMultipliers } from '$lib/hooks/legendary-shards.svelte';
 	import { feats, level, other, shards } from '$lib/hooks/time-shard-calculation.svelte';
 
 	let showPostRocket = $state(false);
+	let t1BonusHack = $state(false);
+	let t2BonusHack = $state(false);
+	let t3BonusHack = $state(false);
+	let t4BonusHack = $state(false);
+	let t5BonusHack = $state(false);
+	const hasBonusHack = $derived(
+		t1BonusHack || t2BonusHack || t3BonusHack || t4BonusHack || t5BonusHack
+	);
+
+	$effect(() => {
+		t1BonusHack = neededLegendaryGroupMultipliers.t1Bonus === 2;
+		t2BonusHack = neededLegendaryGroupMultipliers.t2Bonus === 2;
+		t3BonusHack = neededLegendaryGroupMultipliers.t3Bonus === 2;
+		t4BonusHack = neededLegendaryGroupMultipliers.t4Bonus === 2;
+		t5BonusHack = neededLegendaryGroupMultipliers.t5Bonus === 2;
+	});
+
+	$effect(() => {
+		neededLegendaryGroupMultipliers.t1Bonus = t1BonusHack ? 2 : 1;
+		neededLegendaryGroupMultipliers.t2Bonus = t2BonusHack ? 2 : 1;
+		neededLegendaryGroupMultipliers.t3Bonus = t3BonusHack ? 2 : 1;
+		neededLegendaryGroupMultipliers.t4Bonus = t4BonusHack ? 2 : 1;
+		neededLegendaryGroupMultipliers.t5Bonus = t5BonusHack ? 2 : 1;
+	});
 
 	function formatNumber(number: number) {
 		return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 10 }).format(
@@ -79,7 +106,42 @@
 		</div>
 
 		<div class="input">
-			<Label class="mb-4 text-lg" for="legendaries">Legendaries: {shards.legendary}%</Label>
+			<Label class="relative mb-4 w-fit text-lg" for="legendaries">
+				Legendaries: {shards.legendary}%
+				<Dialog.Root>
+					<Dialog.Trigger
+						class="absolute top-0 -right-10 text-2xl hover:opacity-100"
+						style="opacity: {hasBonusHack ? 1 : 0.3}"
+					>
+						🚀
+					</Dialog.Trigger>
+					<Dialog.Content class="max-w-xs gap-2">
+						<Dialog.Title class="text-base">Group bonus hacks</Dialog.Title>
+						<div class="grid gap-2">
+							<label class="flex items-center gap-2 text-sm">
+								<Checkbox bind:checked={t1BonusHack} />
+								T1 bonus hack
+							</label>
+							<label class="flex items-center gap-2 text-sm">
+								<Checkbox bind:checked={t2BonusHack} />
+								T2 bonus hack
+							</label>
+							<label class="flex items-center gap-2 text-sm">
+								<Checkbox bind:checked={t3BonusHack} />
+								T3 bonus hack
+							</label>
+							<label class="flex items-center gap-2 text-sm">
+								<Checkbox bind:checked={t4BonusHack} />
+								T4 bonus hack
+							</label>
+							<label class="flex items-center gap-2 text-sm">
+								<Checkbox bind:checked={t5BonusHack} />
+								T5 bonus hack
+							</label>
+						</div>
+					</Dialog.Content>
+				</Dialog.Root>
+			</Label>
 			<LegendaryModal />
 		</div>
 
