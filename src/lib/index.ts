@@ -26,5 +26,6 @@ export {
 	ownedLegendaryCount,
 	incOwnedLegendary,
 	decOwnedLegendary,
-	updateOwnedRuneCount
+	updateOwnedRuneCount,
+	rebuildOwnedRuneCountFromLegendaries
 } from '$lib/hooks/legendary-cost.svelte';

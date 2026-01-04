@@ -2,9 +2,13 @@
 	import '../app.css';
 	import {
 		ownedRuneCount,
-		ownedLegendaryCount
+		ownedLegendaryCount,
+		rebuildOwnedRuneCountFromLegendaries
 	} from '$lib';
-	import { neededLegendaryCount } from '$lib/hooks/legendary-shards.svelte';
+	import {
+		neededLegendaryCount,
+		rebuildNeededRuneCountFromLegendaries
+	} from '$lib/hooks/legendary-shards.svelte';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
@@ -20,12 +24,19 @@
 	import { feats, level, other } from '$lib/hooks/time-shard-calculation.svelte';
 	onMount(() => {
 		const params = page.url.searchParams;
-		deSerialize(params.get('ownedRunes') ?? params.get('runes'), ownedRuneCount);
-		deSerialize(params.get('ownedLegendaries') ?? params.get('legendaries'), ownedLegendaryCount);
-		deSerialize(
-			params.get('neededLegendaries') ?? params.get('legendariesShards'),
-			neededLegendaryCount
-		);
+		const ownedRunesParam = params.get('ownedRunes') ?? params.get('runes');
+		const ownedLegendariesParam = params.get('ownedLegendaries') ?? params.get('legendaries');
+		const neededLegendariesParam =
+			params.get('neededLegendaries') ?? params.get('legendariesShards');
+		deSerialize(ownedRunesParam, ownedRuneCount);
+		deSerialize(ownedLegendariesParam, ownedLegendaryCount);
+		deSerialize(neededLegendariesParam, neededLegendaryCount);
+		if (ownedLegendariesParam) {
+			rebuildOwnedRuneCountFromLegendaries();
+		}
+		if (neededLegendariesParam) {
+			rebuildNeededRuneCountFromLegendaries();
+		}
 		deSerialize(params.get('level'), level);
 		deSerialize(params.get('feats'), feats);
 		deSerialize(params.get('other'), other);

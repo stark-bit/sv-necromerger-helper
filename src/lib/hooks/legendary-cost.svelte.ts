@@ -124,3 +124,15 @@ export function resetOwnedCounts() {
 		ownedRuneCount[key] = 0;
 	}
 }
+
+export function rebuildOwnedRuneCountFromLegendaries() {
+	for (const key of Object.keys(ownedRuneCount) as Rune[]) {
+		ownedRuneCount[key] = 0;
+	}
+	for (const legend of Object.keys(ownedLegendaryCount) as Legend[]) {
+		const count = ownedLegendaryCount[legend];
+		for (let i = 1; i <= count; i++) {
+			updateOwnedRuneCount(legend, 'inc', i);
+		}
+	}
+}
