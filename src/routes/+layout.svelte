@@ -23,6 +23,7 @@
 	} from '$lib/utils/url-param-state.svelte';
 	import { page } from '$app/state';
 	import { feats, level, other } from '$lib/hooks/time-shard-calculation.svelte';
+
 	onMount(() => {
 		const params = page.url.searchParams;
 		const ownedRunesParam = params.get('ownedRunes') ?? params.get('runes');
@@ -30,10 +31,12 @@
 		const neededLegendariesParam =
 			params.get('neededLegendaries') ?? params.get('legendariesShards');
 		const legendaryBonusesParam = params.get('legendaryGroupBonuses');
+
 		deSerialize(ownedRunesParam, ownedRuneCount);
 		deSerialize(ownedLegendariesParam, ownedLegendaryCount);
 		deSerialize(neededLegendariesParam, neededLegendaryCount);
 		deSerialize(legendaryBonusesParam, neededLegendaryGroupMultipliers);
+
 		for (const key of Object.keys(neededLegendaryGroupMultipliers)) {
 			const current = neededLegendaryGroupMultipliers[
 				key as keyof typeof neededLegendaryGroupMultipliers
@@ -41,12 +44,15 @@
 			neededLegendaryGroupMultipliers[key as keyof typeof neededLegendaryGroupMultipliers] =
 				Math.min(2, Math.max(1, current)) as 1 | 2;
 		}
+
 		if (ownedLegendariesParam) {
 			rebuildOwnedRuneCountFromLegendaries();
 		}
+
 		if (neededLegendariesParam) {
 			rebuildNeededRuneCountFromLegendaries();
 		}
+
 		deSerialize(params.get('level'), level);
 		deSerialize(params.get('feats'), feats);
 		deSerialize(params.get('other'), other);

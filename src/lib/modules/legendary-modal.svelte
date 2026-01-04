@@ -12,7 +12,7 @@
 	import * as Drawer from '$lib/components/ui/Drawer';
 	import { Button } from 'bits-ui';
 	import { resetButton } from '$lib/assets';
-	import { Checkbox } from '$lib/components/checkbox';
+	import { Switch } from '$lib/components/switch';
 
 	function formatNumber(number: number) {
 		return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 10 }).format(
@@ -63,9 +63,10 @@
 				Total shards: {totalShards} -
 				{shards.legendary}%
 			</div>
-			<div class="absolute top-6 left-1/2 flex -translate-x-1/2 items-center gap-4">
-				<Checkbox bind:checked={showOwnedCounts} />{showOwnedCounts ? 'Current' : 'Needed'}
-			</div>
+			<label class="absolute top-6 left-1/2 flex -translate-x-1/2 items-center gap-4">
+				<Switch bind:checked={showOwnedCounts} />
+				{showOwnedCounts ? 'Current' : 'Needed'}
+			</label>
 			<div class="relative flex justify-center gap-[8px]">
 				{#if hasLegendaryShards}
 					<button
