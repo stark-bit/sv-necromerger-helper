@@ -20,9 +20,12 @@
 	import { feats, level, other } from '$lib/hooks/time-shard-calculation.svelte';
 	onMount(() => {
 		const params = page.url.searchParams;
-		deSerialize(params.get('runes'), ownedRuneCount);
-		deSerialize(params.get('legendaries'), ownedLegendaryCount);
-		deSerialize(params.get('legendariesShards'), neededLegendaryCount);
+		deSerialize(params.get('ownedRunes') ?? params.get('runes'), ownedRuneCount);
+		deSerialize(params.get('ownedLegendaries') ?? params.get('legendaries'), ownedLegendaryCount);
+		deSerialize(
+			params.get('neededLegendaries') ?? params.get('legendariesShards'),
+			neededLegendaryCount
+		);
 		deSerialize(params.get('level'), level);
 		deSerialize(params.get('feats'), feats);
 		deSerialize(params.get('other'), other);
@@ -32,9 +35,9 @@
 		const legendaryShardsSerialized = serialize(neededLegendaryCount);
 		const hasLegendaryShards = Object.values(neededLegendaryCount).some((value) => value !== 0);
 		updateParams({
-			runes: serialize(ownedRuneCount),
-			legendaries: serialize(ownedLegendaryCount),
-			legendariesShards: hasLegendaryShards ? legendaryShardsSerialized : undefined,
+			ownedRunes: serialize(ownedRuneCount),
+			ownedLegendaries: serialize(ownedLegendaryCount),
+			neededLegendaries: hasLegendaryShards ? legendaryShardsSerialized : undefined,
 			level: serialize(level),
 			feats: serialize(feats),
 			other: serialize(other)

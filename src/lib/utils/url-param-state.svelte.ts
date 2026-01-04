@@ -1,25 +1,25 @@
 export let paramState = $state({ value: '' });
 
 export function updateParams({
-  runes,
-  legendaries,
-  legendariesShards,
+  ownedRunes,
+  ownedLegendaries,
+  neededLegendaries,
   level,
   feats,
   other
 }: {
-  runes: string;
-  legendaries: string;
-  legendariesShards?: string;
+  ownedRunes: string;
+  ownedLegendaries: string;
+  neededLegendaries?: string;
   level: string;
   feats: string;
   other: string;
 }) {
   const params = new URLSearchParams();
-  params.set('runes', runes);
-  params.set('legendaries', legendaries);
-  if (legendariesShards) {
-    params.set('legendariesShards', legendariesShards);
+  params.set('ownedRunes', ownedRunes);
+  params.set('ownedLegendaries', ownedLegendaries);
+  if (neededLegendaries) {
+    params.set('neededLegendaries', neededLegendaries);
   }
   params.set('level', level);
   params.set('feats', feats);
