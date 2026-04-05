@@ -54,7 +54,7 @@
 
 
 -->
-
+<div>version: 1.77</div>
 <BonePanel
 	class="relative m-auto mt-10 w-full max-w-[400px] px-4 pb-10"
 	headerText="The Time Machine"
