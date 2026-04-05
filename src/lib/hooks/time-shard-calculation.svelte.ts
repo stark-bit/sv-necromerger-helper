@@ -59,7 +59,7 @@ function calcLegendary(
 
   let t1Bonus = 20 * legendaryGroupBonus.t1Bonus;
   let t2Bonus = 40 * legendaryGroupBonus.t2Bonus;
-  let t3Bonus = 60 * legendaryGroupBonus.t3Bonus;
+  let t3Bonus = 80 * legendaryGroupBonus.t3Bonus;
   let t4Bonus = 80 * legendaryGroupBonus.t4Bonus;
   let t5Bonus = 100 * legendaryGroupBonus.t5Bonus;
 
@@ -72,9 +72,9 @@ function calcLegendary(
   bonus += cy > 0 ? 20 + (cy - 1) * 10 : 0;
   bonus += ar > 0 ? 20 + (ar - 1) * 10 : 0;
   // T3: Cursed, Collosus, Infernal
-  bonus += cu > 0 ? 30 + (cu - 1) * 0 : 0;
-  bonus += co > 0 ? 30 + (co - 1) * 0 : 0;
-  bonus += inf > 0 ? 30 + (inf - 1) * 0 : 0;
+  bonus += cu > 0 ? 40 + (cu - 1) * 0 : 0;
+  bonus += co > 0 ? 40 + (co - 1) * 0 : 0;
+  bonus += inf > 0 ? 40 + (inf - 1) * 0 : 0;
   // T4: Robot chicken, shield bot, stalker
   bonus += rc > 0 ? 20 + (rc - 1) * 10 : 0;
   bonus += sb > 0 ? 30 + (sb - 1) * 15 : 0;
