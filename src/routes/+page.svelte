@@ -5,7 +5,7 @@
 	import { Checkbox } from '$lib/components/checkbox';
 	import * as Dialog from '$lib/components/ui/Dialog';
 	import { neededLegendaryGroupMultipliers } from '$lib/hooks/legendary-shards.svelte';
-	import { feats, level, other, shards } from '$lib/hooks/time-shard-calculation.svelte';
+	import { feats, lairSpace, level, other, shards } from '$lib/hooks/time-shard-calculation.svelte';
 
 	let showPostRocket = $state(false);
 	let t1BonusHack = $state(false);
@@ -162,6 +162,8 @@
 			</div>
 		</div>
 		<div class="input">
+			Legendaries / Lair Space: {lairSpace.used}/{lairSpace.total}
+			<br />
 			Devourer: {formatNumber(shards.level)}
 			<br />
 			Feats: {shards.feats}%

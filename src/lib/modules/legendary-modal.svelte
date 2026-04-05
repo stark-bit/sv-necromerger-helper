@@ -7,7 +7,7 @@
 		neededLegendaryCount,
 		resetNeededCounts
 	} from '$lib/hooks/legendary-shards.svelte';
-	import { shards } from '$lib/hooks/time-shard-calculation.svelte';
+	import { shards, lairSpace } from '$lib/hooks/time-shard-calculation.svelte';
 	import { borderImage, close } from '$lib/assets';
 	import * as Drawer from '$lib/components/ui/Drawer';
 	import { Button } from 'bits-ui';
@@ -67,6 +67,9 @@
 				<Switch bind:checked={showOwnedCounts} />
 				{showOwnedCounts ? 'Current' : 'Needed'}
 			</label>
+			<div class="absolute top-[54px] left-1/2 -translate-x-1/2 text-center text-sm">
+				Legendaries / Lair Space: {lairSpace.used}/{lairSpace.total}
+			</div>
 			<div class="relative flex justify-center gap-[8px]">
 				{#if hasLegendaryShards}
 					<button
