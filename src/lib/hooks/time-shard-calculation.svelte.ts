@@ -60,7 +60,7 @@ function calcLegendary(
   let t1Bonus = 20 * legendaryGroupBonus.t1Bonus;
   let t2Bonus = 40 * legendaryGroupBonus.t2Bonus;
   let t3Bonus = 80 * legendaryGroupBonus.t3Bonus;
-  let t4Bonus = 80 * legendaryGroupBonus.t4Bonus;
+  let t4Bonus = 60 * legendaryGroupBonus.t4Bonus;
   let t5Bonus = 100 * legendaryGroupBonus.t5Bonus;
 
   // T1: Lich, Gorgon, Harpy
